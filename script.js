@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Navigation active state and smooth scrolling
     const navLinks = document.querySelectorAll('.main-nav .nav-link');
-    
+
     // Handle navigation link clicks
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -47,15 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             e.preventDefault();
-            
+
             // Remove active class from all nav links
             navLinks.forEach(link => link.classList.remove('active'));
-            
+
             // Add active class to clicked nav link (if it's a nav link)
             if (this.classList.contains('nav-link')) {
                 this.classList.add('active');
             }
-            
+
             try {
                 const target = document.querySelector(href);
                 if (target) {
@@ -75,19 +75,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set active nav link based on scroll position
     const sections = document.querySelectorAll('section[id]');
-    
+
     function updateActiveNavOnScroll() {
         const scrollPosition = window.scrollY + 100; // Offset for header
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
-            
+
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 // Remove active class from all nav links
                 navLinks.forEach(link => link.classList.remove('active'));
-                
+
                 // Add active class to corresponding nav link
                 const activeNavLink = document.querySelector(`.main-nav .nav-link[href="#${sectionId}"]`);
                 if (activeNavLink) {
@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Throttled scroll event for performance
     const throttledScrollHandler = throttle(updateActiveNavOnScroll, 100);
     window.addEventListener('scroll', throttledScrollHandler);
-    
+
     // Set initial active state
     updateActiveNavOnScroll();
 
@@ -179,9 +179,39 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        alert('Thank you for your message! We\'ll get back to you soon.');
-        contactForm.reset();
+         // Submit to Formspree
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                alert('Thank you for your message! We\'ll get back to you soon.');
+                contactForm.reset();
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwnProperty.call(data, 'errors')) {
+                        alert('Error: ' + data["errors"].map(error => error["message"]).join(", "));
+                    } else {
+                        alert('Oops! There was a problem submitting your form');
+                    }
+                });
+            }
+        }).catch(error => {
+            alert('Oops! There was a problem submitting your form');
+        }).finally(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        });
     });
+    // END: Contact form submission with Formspree integration
 
     // Enhanced Blog Functionality
     // Blog filtering system for content management integration

@@ -295,7 +295,7 @@
             </div>
 
             <!-- Featured Blog Post -->
-        
+
             <div class="featured-blog">
                 <article class="featured-blog-card" data-category="digital-transformation">
                     <div class="featured-blog-image">
@@ -640,13 +640,32 @@
 
             <div class="contact-content">
                 <div class="contact-info">
+                   <!-- START: Updated contact information with CAPACITI business details -->
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <h4>Cape Town Innovation Hub</h4>
+                            <p>2nd Floor Brickfield Canvas<br>35 Brickfield Rd, Woodstock<br>Cape Town, 7925</p>
+                        </div>
+                    </div>
                     <div class="contact-item">
                         <div class="icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
-                            <h4>Address</h4>
-                            <p>123 Digital Drive<br>Cape Town, 8001<br>South Africa</p>
+                            <h4>CAPACITI Campus Cape Town</h4>
+                            <p>95 Durham Ave<br>Salt River, Cape Town</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div>
+                            <h4>CAPACITI Campus Johannesburg</h4>
+                            <p>13th Floor, Hollard City Campus<br>19 Ameshof Road<br>Braamfontein</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -655,7 +674,7 @@
                         </div>
                         <div>
                             <h4>Phone</h4>
-                            <p>+27 21 123 4567</p>
+                            <p>Cape Town: +27 (0) 21 409 7000<br>Johannesburg: +27 21 003 7579</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -664,12 +683,24 @@
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <p>hello@capaciti.org.za</p>
+                            <p>General: hello@capaciti.org.za<br>Cape Town: reception@uvuafrica.org</p>
                         </div>
                     </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h4>Website</h4>
+                            <p><a href="https://www.capaciti.org.za" target="_blank">www.capaciti.org.za</a></p>
+                        </div>
+                    </div>
+                    <!-- END: Updated contact information with CAPACITI business details -->
                 </div>
 
-                <form class="contact-form" id="contact-form">
+
+                <!-- START: Formspree integration for contact form -->
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/mjkrplnl" method="POST">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
@@ -679,13 +710,17 @@
                     <div class="form-group">
                         <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                     </div>
+                     <!-- Honeypot field to prevent spam -->
+                    <input type="text" name="_gotcha" style="display:none !important">
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
 
+              <!-- START: Updated map to show CAPACITI Campus Cape Town location -->
             <div class="map-container">
+                 <h3 style="text-align: center; margin-bottom: 1rem; color: #1f2937;">CAPACITI Campus Cape Town</h3>
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.2!2d18.4241!3d-33.9175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDU1JzAzLjAiUyAxOMKwMjUnMjYuOCJF!5e0!3m2!1sen!2sza!4v1623456789012!5m2!1sen!2sza" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.2!2d18.4639!3d-33.9342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc676c8b5e6b85%3A0x4c8f8b7d9e2a1b34!2s95%20Durham%20Ave%2C%20Salt%20River%2C%20Cape%20Town%2C%207925%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1623456789012!5m2!1sen!2sza" 
                     width="100%" 
                     height="300" 
                     style="border:0;" 
@@ -693,6 +728,36 @@
                     loading="lazy">
                 </iframe>
             </div>
+            <!-- END: Updated map to show CAPACITI Campus Cape Town location -->
+
+             <!-- START: Added second map for Cape Town Innovation Hub -->
+            <div class="map-container" style="margin-top: 2rem;">
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #1f2937;">Cape Town Innovation Hub</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.8!2d18.4686!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc677c1b9c2fd3%3A0x9f6c8b8d6e1c3a45!2s35%20Brickfield%20Rd%2C%20Woodstock%2C%20Cape%20Town%2C%207925%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1623456789012!5m2!1sen!2sza" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <!-- END: Added second map for Cape Town Innovation Hub -->
+
+             <!-- START: Added third map for CAPACITI Campus Johannesburg -->
+            <div class="map-container" style="margin-top: 2rem;">
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #1f2937;">CAPACITI Campus Johannesburg</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.8!2d28.0338!3d-26.1899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c67c2c5e8a9%3A0x8f7d6e5c4b3a2f1e!2s19%20Ameshof%20Rd%2C%20Braamfontein%2C%20Johannesburg%2C%202017%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1623456789012!5m2!1sen!2sza" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <!-- END: Added third map for CAPACITI Campus Johannesburg -->
+
         </div>
     </section>
 
@@ -961,17 +1026,17 @@
 
                     <div class="code-example">
                         <pre><code>function useLocalStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      return initialValue;
-    }
-  });
+                    const [storedValue, setStoredValue] = useState(() => {
+                    try {
+                            const item = window.localStorage.getItem(key);
+                            return item ? JSON.parse(item) : initialValue;
+                        } catch (error) {
+                        return initialValue;
+                     }
+                });
 
-  const setValue = (value) => {
-    try {
+            const setValue = (value) => {
+                try {
       setStoredValue(value);
       window.localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
