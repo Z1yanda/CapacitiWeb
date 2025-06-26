@@ -1353,7 +1353,7 @@ section {
 .contact-item .icon {
     width: 50px;
     height: 50px;
-    background: #2563eb;
+    background: #6115D0;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -1361,6 +1361,18 @@ section {
     justify-content: center;
     flex-shrink: 0;
 }
+/* START: Added styling for website links in contact section */
+.contact-item a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+/* END: Added styling for website links in contact section */
 
 .contact-form {
     background: white;
