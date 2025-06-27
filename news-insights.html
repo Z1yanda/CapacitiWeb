@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Insights - CAPACITI</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="capaciti logo.jpg" alt="CAPACITI Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="programmes.html" class="nav-link">Programmes</a></li>
+                    <li><a href="impact.html" class="nav-link">Impact</a></li>
+                    <li><a href="opportunities.html" class="nav-link">Opportunities</a></li>
+                    <li><a href="blog.html" class="nav-link">Blogs</a></li>
+                    <li><a href="newsinsights.html" class="nav-link active">News & Insights</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section for News & Insights -->
+    <section class="news-insights-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>News & Insights</h1>
+                <p>Stay updated with our latest events, announcements, and industry insights</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main News & Insights Content -->
+    <section id="news-insights" class="news-insights">
+        <div class="container">
+            <!-- Filter Navigation -->
+            <div class="news-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="news">News</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="insights">Insights</button>
+                <button class="filter-btn" data-filter="achievements">Achievements</button>
+            </div>
+
+            <!-- Featured News -->
+            <div class="featured-news">
+                <article class="featured-news-card" data-category="news">
+                    <div class="featured-news-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="CAPACITI receives major funding">
+                        <div class="news-category-badge news">Breaking News</div>
+                    </div>
+                    <div class="featured-news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> December 26, 2024</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h2>CAPACITI Receives R15M Government Funding to Expand Digital Skills Training</h2>
+                        <p class="featured-summary">The Department of Higher Education and Training has awarded CAPACITI a significant funding boost to expand our digital skills programmes across South Africa, enabling us to train an additional 1,000 students in 2025.</p>
+                        <div class="news-actions">
+                            <button class="btn btn-primary" onclick="openNewsModal('funding-news')">Read Full Story</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- News Grid -->
+            <div class="news-grid">
+                <!-- Upcoming Events -->
+                <article class="news-card" data-category="events">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tech Career Fair 2025">
+                        <div class="news-category-badge events">Upcoming Event</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="event-date-badge">
+                            <span class="day">15</span>
+                            <span class="month">JAN</span>
+                        </div>
+                        <h3>Tech Career Fair 2025</h3>
+                        <p>Join us for the largest tech career fair in Cape Town. Meet leading employers and explore exciting career opportunities in the digital economy.</p>
+                        <div class="event-details">
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 9:00 AM - 5:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Cape Town International Convention Centre</span>
+                            </div>
+                            <button class="btn btn-outline btn-small">Register Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Company News -->
+                <article class="news-card" data-category="news">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Partnership announcement">
+                        <div class="news-category-badge news">Company News</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> December 20, 2024</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 3 min read</span>
+                        </div>
+                        <h3>Strategic Partnership with Major Tech Companies Announced</h3>
+                        <p>CAPACITI announces new partnerships with leading technology companies to provide direct employment pathways for our graduates.</p>
+                        <button class="btn btn-outline btn-small" onclick="openNewsModal('partnership-news')">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Industry Insights -->
+                <article class="news-card" data-category="insights">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Future of work insights">
+                        <div class="news-category-badge insights">Industry Insight</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> December 18, 2024</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h3>The Future of Work: Skills That Will Define 2025</h3>
+                        <p>Our research reveals the top digital skills that will be in highest demand next year and how professionals can prepare for the changing job market.</p>
+                        <button class="btn btn-outline btn-small" onclick="openNewsModal('future-work-insights')">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Achievement -->
+                <article class="news-card" data-category="achievements">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Graduate success stories">
+                        <div class="news-category-badge achievements">Achievement</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> December 15, 2024</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h3>95% Employment Rate Achieved by Latest Cohort</h3>
+                        <p>Our most recent graduates have achieved the highest employment rate in CAPACITI's history, with 95% securing positions within 3 months of graduation.</p>
+                        <button class="btn btn-outline btn-small" onclick="openNewsModal('employment-achievement')">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Workshop Event -->
+                <article class="news-card" data-category="events">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Women in Tech Workshop">
+                        <div class="news-category-badge events">Workshop</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="event-date-badge">
+                            <span class="day">22</span>
+                            <span class="month">JAN</span>
+                        </div>
+                        <h3>Women in Tech Leadership Workshop</h3>
+                        <p>Empowering women to succeed in technology careers through leadership development, networking, and skill-building sessions.</p>
+                        <div class="event-details">
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 1:00 PM - 5:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> CAPACITI Campus, Salt River</span>
+                            </div>
+                            <button class="btn btn-outline btn-small">Register Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Industry Insight -->
+                <article class="news-card" data-category="insights">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data analytics trends">
+                        <div class="news-category-badge insights">Market Analysis</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> December 12, 2024</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>South Africa's Growing Demand for Data Analytics Skills</h3>
+                        <p>New market research shows a 300% increase in demand for data analytics professionals across South African industries.</p>
+                        <button class="btn btn-outline btn-small" onclick="openNewsModal('data-analytics-demand')">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Community Impact -->
+                <article class="news-card" data-category="achievements">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Community impact">
+                        <div class="news-category-badge achievements">Community Impact</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> December 10, 2024</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3>1,000+ Lives Transformed Through Digital Skills Training</h3>
+                        <p>CAPACITI reaches milestone of training over 1,000 individuals, creating lasting impact in communities across South Africa.</p>
+                        <button class="btn btn-outline btn-small" onclick="openNewsModal('community-impact')">Read More</button>
+                    </div>
+                </article>
+
+                <!-- Upcoming Event -->
+                <article class="news-card" data-category="events">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1515378791036-0648a814c963?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Innovation summit">
+                        <div class="news-category-badge events">Conference</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="event-date-badge">
+                            <span class="day">28</span>
+                            <span class="month">FEB</span>
+                        </div>
+                        <h3>Digital Innovation Summit 2025</h3>
+                        <p>Join industry leaders, innovators, and thought leaders for a day of insights on digital transformation and emerging technologies.</p>
+                        <div class="event-details">
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 8:00 AM - 6:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Sandton Convention Centre</span>
+                            </div>
+                            <button class="btn btn-outline btn-small">Learn More</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Industry News -->
+                <article class="news-card" data-category="insights">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI in education">
+                        <div class="news-category-badge insights">Technology Trend</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="fas fa-calendar"></i> December 8, 2024</span>
+                            <span class="read-time"><i class="fas fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h3>How AI is Revolutionizing Skills Development</h3>
+                        <p>Exploring how artificial intelligence is transforming the way we learn and develop digital skills in the modern era.</p>
+                        <button class="btn btn-outline btn-small" onclick="openNewsModal('ai-education')">Read More</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="news-pagination">
+                <button class="btn btn-outline load-more-news-btn" onclick="loadMoreNews()">
+                    <i class="fas fa-plus"></i> Load More Articles
+                </button>
+                <div class="pagination-info">
+                    <span>Showing 9 of 24 articles</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="news-newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest news, events, and insights delivered to your inbox</p>
+                <form class="newsletter-form" id="news-newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <small>No spam, unsubscribe anytime. Read our <a href="#">Privacy Policy</a></small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="capaciti logo.jpg" alt="CAPACITI Logo" class="footer-logo">
+                    <p>Empowering individuals with digital skills for the future of work.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programmes.html">Programmes</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="opportunities.html">Opportunities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Programmes</h4>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Data Science</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">UX/UI Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with our latest news and events</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CAPACITI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- News Modals -->
+    <div id="funding-news-modal" class="modal">
+        <div class="modal-content news-modal">
+            <span class="close" onclick="closeModal('funding-news-modal')">&times;</span>
+            <article class="news-full-article">
+                <div class="news-header">
+                    <div class="news-meta-full">
+                        <span class="news-date"><i class="fas fa-calendar"></i> December 26, 2024</span>
+                        <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+                        <span class="news-category">Breaking News</span>
+                    </div>
+                    <h1>CAPACITI Receives R15M Government Funding to Expand Digital Skills Training</h1>
+                </div>
+                <div class="news-image-full">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="CAPACITI receives major funding">
+                </div>
+                <div class="news-content-full">
+                    <p><strong>Cape Town, South Africa</strong> - The Department of Higher Education and Training has awarded CAPACITI a groundbreaking R15 million funding package to dramatically expand digital skills training across South Africa.</p>
+                    
+                    <p>This significant investment will enable CAPACITI to train an additional 1,000 students in 2025, representing a 200% increase in our current capacity. The funding will support the establishment of new training centers in Durban and Port Elizabeth, bringing our comprehensive digital skills programmes closer to underserved communities.</p>
+                    
+                    <h3>Programme Expansion Details</h3>
+                    <p>The funding will specifically target:</p>
+                    <ul>
+                        <li>Advanced Technical Academy programmes in DevOps, Java, and Data Analytics</li>
+                        <li>Women in Business technology training initiatives</li>
+                        <li>Good Manufacturing Practices (GMP) certification programmes</li>
+                        <li>Creative industry skills development</li>
+                    </ul>
+                    
+                    <p>"This funding represents a vote of confidence in CAPACITI's proven track record of transforming lives through digital skills training," said CEO Jane Smith. "We're excited to bring our programmes to new communities and help bridge South Africa's digital skills gap."</p>
+                    
+                    <p>The programme is expected to launch in March 2025, with applications opening in February. Priority will be given to candidates from previously disadvantaged backgrounds and rural communities.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // News-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // News filtering functionality
+            const newsCards = document.querySelectorAll('.news-card, .featured-news-card');
+            const filterBtns = document.querySelectorAll('.news-filters .filter-btn');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    newsCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeIn 0.5s ease-in';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Newsletter form submission
+            const newsNewsletterForm = document.getElementById('news-newsletter-form');
+            if (newsNewsletterForm) {
+                newsNewsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    if (!email) {
+                        alert('Please enter your email address');
+                        return;
+                    }
+                    alert('Thank you for subscribing to our newsletter!');
+                    this.reset();
+                });
+            }
+        });
+
+        // Open news modal function
+        window.openNewsModal = function(modalType) {
+            const modalId = modalType + '-modal';
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            } else {
+                alert('Full article coming soon!');
+            }
+        };
+
+        // Load more news function
+        window.loadMoreNews = function() {
+            alert('Loading more news articles...');
+        };
+    </script>
+</body>
+</html>
