@@ -31,6 +31,9 @@ class PortfolioChatbot {
                 "Hi there! I can tell you about CAPACITI. What would you like to know?",
                 "Welcome! I'm here to help you explore CAPACITI. Ask me anything!"
             ],
+            about: [
+                "Capaciti is a work-readiness and digital skills development program aimed at equipping young South Africans with in-demand skills in tech, data, and business analysis, helping them transition into meaningful employment"
+            ],
             application: [
                 ' You can apply on our website by filling out the online application form here: [Insert link]'
                 
@@ -270,6 +273,11 @@ class PortfolioChatbot {
         if (this.containsKeywords(lowerMessage, ['application'])) {
             return this.getRandomResponse('application');
         }
+        if (this.containsKeywords(lowerMessage, ['about'])) {
+            return this.getRandomResponse('about');
+        }
+        
+        
           if (this.containsKeywords(lowerMessage, ['courses'])) {
             return this.getRandomResponse('courses');
         }
