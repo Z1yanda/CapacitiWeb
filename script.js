@@ -1,3 +1,4 @@
+
 // Hero background animation for parallax effect
 function initHeroBackground() {
     const heroBackground = document.querySelector('.hero-background');
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Navigation active state and smooth scrolling
     const navLinks = document.querySelectorAll('.main-nav .nav-link');
-    
+
     // Handle navigation link clicks
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -47,15 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             e.preventDefault();
-            
+
             // Remove active class from all nav links
             navLinks.forEach(link => link.classList.remove('active'));
-            
+
             // Add active class to clicked nav link (if it's a nav link)
             if (this.classList.contains('nav-link')) {
                 this.classList.add('active');
             }
-            
+
             try {
                 const target = document.querySelector(href);
                 if (target) {
@@ -75,19 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set active nav link based on scroll position
     const sections = document.querySelectorAll('section[id]');
-    
+
     function updateActiveNavOnScroll() {
         const scrollPosition = window.scrollY + 100; // Offset for header
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
-            
+
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 // Remove active class from all nav links
                 navLinks.forEach(link => link.classList.remove('active'));
-                
+
                 // Add active class to corresponding nav link
                 const activeNavLink = document.querySelector(`.main-nav .nav-link[href="#${sectionId}"]`);
                 if (activeNavLink) {
@@ -96,11 +97,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Throttled scroll event for performance
     const throttledScrollHandler = throttle(updateActiveNavOnScroll, 100);
     window.addEventListener('scroll', throttledScrollHandler);
-    
+
     // Set initial active state
     updateActiveNavOnScroll();
 
@@ -126,6 +127,319 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Programme filtering functionality
+    const programmeCards = document.querySelectorAll('.programme-card');
+    const filterBtns = document.querySelectorAll('.programme-filters .filter-btn');
+
+    // Initialize programme filters
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            const filterValue = this.getAttribute('data-category');
+
+            programmeCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || cardCategory === filterValue) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease-in';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // GMP Programme Modal with detailed content
+    window.openGMPModal = function() {
+        const gmpModalContent = `
+            <div class="modal" id="gmp-modal" style="display: block;">
+                <div class="modal-content programme-modal">
+                    <span class="close" onclick="closeModal('gmp-modal')">&times;</span>
+                    <div class="programme-modal-header">
+                        <h2>Good Manufacturing Practices (GMP)</h2>
+                        <div class="programme-meta-modal">
+                            <span class="delivery-type in-person-tag">IN PERSON</span>
+                            <span class="location-type">CAPE TOWN</span>
+                        </div>
+                        <p class="programme-intro">Join our inaugural cohort in Cape Town, South Africa for comprehensive GMP training.</p>
+                    </div>
+                    
+                    <div class="programme-section">
+                        <h3>About the programme</h3>
+                        <p>Our one-week Good Manufacturing Practices (GMP) Intensive Training Programme provides a thorough introduction to GMP principles, focusing on manufacturing, quality assurance, and regulatory compliance within the food and pharmaceutical industries. This programme combines theoretical insights with practical, hands-on experiences, ensuring participants gain a deep understanding of GMP standards. Over five days, you'll explore critical aspects such as facility management, process control, cleaning and validation, and preparation for regulatory inspections. By the end of the course, you'll be equipped with the knowledge and skills to ensure compliance, improve product quality, and meet regulatory requirements in the manufacturing environment.</p>
+                    </div>
+
+                    <div class="programme-section">
+                        <h3>Programme details</h3>
+                        
+                        <h4>Programme Highlights</h4>
+                        <ul>
+                            <li><strong>Interactive Learning:</strong> Real-world scenarios and hands-on exercises</li>
+                            <li><strong>Industry-Specific Insights:</strong> Tailored discussions on both food and pharma GMPs</li>
+                            <li><strong>Specialized Focus Areas:</strong> Dedicated sessions on advanced topics, including biological products and aseptic processing</li>
+                            <li><strong>Certification of Completion:</strong> A certificate awarded upon successful completion of the course, adding to participants' professional credentials</li>
+                        </ul>
+
+                        <h4>Key Learning Benefits</h4>
+                        <ul>
+                            <li><strong>Expert Guidance:</strong> Learn from seasoned instructors with industry experience</li>
+                            <li><strong>Networking Opportunities:</strong> Connect with other professionals in the industry</li>
+                            <li><strong>Practical Applications:</strong> Gain knowledge that is directly applicable to the workplace</li>
+                        </ul>
+
+                        <h4>Key Objectives</h4>
+                        <ul>
+                            <li>Understand and implement GMP requirements in food and pharmaceutical settings</li>
+                            <li>Design, manage, and maintain compliant facilities</li>
+                            <li>Develop effective quality management systems</li>
+                            <li>Master documentation and record-keeping practices</li>
+                            <li>Prepare for and successfully navigate regulatory inspections</li>
+                            <li>Implement risk-based approaches to quality assurance</li>
+                        </ul>
+
+                        <div class="programme-details-grid">
+                            <div class="detail-item">
+                                <h4>Duration</h4>
+                                <p>5 Days Intensive Training</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Format</h4>
+                                <p>In-person, hands-on workshops and theoretical sessions</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Location</h4>
+                                <p>Cape Town, South Africa</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Certification</h4>
+                                <p>Certificate of completion provided</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="programme-section">
+                        <h3>Course Curriculum</h3>
+                        <div class="curriculum-timeline">
+                            <div class="day-item">
+                                <h4>Day 1: GMP Fundamentals</h4>
+                                <ul>
+                                    <li>Introduction to GMP principles and regulations</li>
+                                    <li>Regulatory landscape overview (FDA, EMA, WHO)</li>
+                                    <li>Quality management systems basics</li>
+                                </ul>
+                            </div>
+                            <div class="day-item">
+                                <h4>Day 2: Facility Design & Maintenance</h4>
+                                <ul>
+                                    <li>Facility layout and design considerations</li>
+                                    <li>Equipment qualification and maintenance</li>
+                                    <li>Environmental monitoring systems</li>
+                                </ul>
+                            </div>
+                            <div class="day-item">
+                                <h4>Day 3: Process Control & Validation</h4>
+                                <ul>
+                                    <li>Process validation principles</li>
+                                    <li>Critical control points identification</li>
+                                    <li>Change control management</li>
+                                </ul>
+                            </div>
+                            <div class="day-item">
+                                <h4>Day 4: Documentation & Records</h4>
+                                <ul>
+                                    <li>Documentation systems and best practices</li>
+                                    <li>Batch records and traceability</li>
+                                    <li>Deviation and CAPA management</li>
+                                </ul>
+                            </div>
+                            <div class="day-item">
+                                <h4>Day 5: Audits & Inspections</h4>
+                                <ul>
+                                    <li>Preparing for regulatory inspections</li>
+                                    <li>Internal audit programs</li>
+                                    <li>Mock inspection exercise</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="programme-section">
+                        <h3>Who Should Attend</h3>
+                        <div class="target-audience">
+                            <ul>
+                                <li>Quality assurance professionals</li>
+                                <li>Manufacturing managers and supervisors</li>
+                                <li>Regulatory affairs specialists</li>
+                                <li>Production technicians and operators</li>
+                                <li>New graduates entering pharmaceutical/food industries</li>
+                                <li>Consultants working in GMP environments</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="programme-actions">
+                        <button class="btn btn-primary" onclick="showGMPApplicationForm()">Apply Now</button>
+                        <button class="btn btn-outline" onclick="downloadGMPBrochure()">Download Brochure</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Remove existing modal if present
+        const existingModal = document.getElementById('gmp-modal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+
+        // Add modal to body
+        document.body.insertAdjacentHTML('beforeend', gmpModalContent);
+        document.body.style.overflow = 'hidden';
+    };
+
+    // GMP Application Form
+    window.showGMPApplicationForm = function() {
+        closeModal('gmp-modal');
+        
+        const applicationModal = document.createElement('div');
+        applicationModal.id = 'gmp-application-modal';
+        applicationModal.className = 'modal';
+        applicationModal.style.display = 'block';
+        
+        applicationModal.innerHTML = `
+            <div class="modal-content programme-modal">
+                <span class="close" onclick="closeApplicationModal('gmp-application-modal')">&times;</span>
+                <div class="programme-modal-header">
+                    <h2>Apply for GMP Training Programme</h2>
+                    <p>Join our intensive 5-day Good Manufacturing Practices training in Cape Town.</p>
+                </div>
+                
+                <form class="application-form" id="gmp-application-form">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gmp-firstName">First Name *</label>
+                                <input type="text" id="gmp-firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gmp-lastName">Last Name *</label>
+                                <input type="text" id="gmp-lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gmp-email">Email Address *</label>
+                                <input type="email" id="gmp-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gmp-phone">Phone Number *</label>
+                                <input type="tel" id="gmp-phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gmp-company">Company/Organization *</label>
+                            <input type="text" id="gmp-company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gmp-position">Job Title/Position *</label>
+                            <input type="text" id="gmp-position" name="position" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Professional Background</h3>
+                        <div class="form-group">
+                            <label for="gmp-industry">Industry Sector *</label>
+                            <select id="gmp-industry" name="industry" required>
+                                <option value="">Select your industry</option>
+                                <option value="pharmaceutical">Pharmaceutical</option>
+                                <option value="food-beverage">Food & Beverage</option>
+                                <option value="cosmetics">Cosmetics</option>
+                                <option value="medical-devices">Medical Devices</option>
+                                <option value="biotechnology">Biotechnology</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gmp-experience">GMP Experience Level *</label>
+                            <select id="gmp-experience" name="experience" required>
+                                <option value="">Select your experience level</option>
+                                <option value="none">No GMP experience</option>
+                                <option value="basic">Basic knowledge (0-2 years)</option>
+                                <option value="intermediate">Intermediate (2-5 years)</option>
+                                <option value="advanced">Advanced (5+ years)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gmp-motivation">Why do you want to attend this GMP training? *</label>
+                            <textarea id="gmp-motivation" name="motivation" rows="4" required placeholder="Please describe your motivation for attending this programme and how it will benefit your career..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Training Preferences</h3>
+                        <div class="form-group">
+                            <label for="gmp-focus">Areas of Primary Interest (select all that apply):</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="focus" value="facility-design"> Facility Design & Layout</label>
+                                <label><input type="checkbox" name="focus" value="process-validation"> Process Validation</label>
+                                <label><input type="checkbox" name="focus" value="documentation"> Documentation Systems</label>
+                                <label><input type="checkbox" name="focus" value="quality-control"> Quality Control</label>
+                                <label><input type="checkbox" name="focus" value="regulatory-compliance"> Regulatory Compliance</label>
+                                <label><input type="checkbox" name="focus" value="audit-preparation"> Audit Preparation</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="closeApplicationModal('gmp-application-modal')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        `;
+        
+        document.body.appendChild(applicationModal);
+        document.body.style.overflow = 'hidden';
+        
+        // Handle form submission
+        const form = document.getElementById('gmp-application-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const applicationData = {};
+            
+            for (let [key, value] of formData.entries()) {
+                if (applicationData[key]) {
+                    if (Array.isArray(applicationData[key])) {
+                        applicationData[key].push(value);
+                    } else {
+                        applicationData[key] = [applicationData[key], value];
+                    }
+                } else {
+                    applicationData[key] = value;
+                }
+            }
+            
+            alert('Thank you for your application! We have received your application for the GMP Training Programme. Our team will review your application and contact you within 3-5 business days with programme details and next steps.');
+            
+            console.log('GMP Application submitted:', applicationData);
+            closeApplicationModal('gmp-application-modal');
+        });
+    };
+
+    // Download GMP Brochure function
+    window.downloadGMPBrochure = function() {
+        // In a real implementation, this would download an actual PDF brochure
+        alert('GMP Programme brochure download will be available soon. Please contact us directly for detailed programme information.');
+    };
+
     // Testimonial slider
     let currentTestimonial = 0;
     const testimonials = document.querySelectorAll('.testimonial-slide');
@@ -141,22 +455,45 @@ document.addEventListener('DOMContentLoaded', function() {
         currentTestimonial = index;
     };
 
-    setInterval(() => {
-        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        showTestimonial(currentTestimonial);
-    }, 5000);
+    if (testimonials.length > 0) {
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+    }
 
-    // Modal functionality
+    // Enhanced Modal functionality
     window.openModal = function(modalId) {
-        document.getElementById(modalId).style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        if (modalId === 'gmp-modal') {
+            openGMPModal();
+            return;
+        }
+        
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
     };
 
     window.closeModal = function(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-        document.body.style.overflow = 'auto';
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
     };
 
+    // Close application modal function
+    window.closeApplicationModal = function(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.remove();
+            document.body.style.overflow = 'auto';
+        }
+    };
+
+    // Click outside modal to close
     window.addEventListener('click', function(event) {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = 'none';
@@ -166,34 +503,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Contact form submission
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
 
-        if (!name || !email || !message) {
-            alert('Please fill in all fields');
-            return;
-        }
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
 
-        alert('Thank you for your message! We\'ll get back to you soon.');
-        contactForm.reset();
-    });
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            contactForm.reset();
+        });
+    }
 
     // Enhanced Blog Functionality
-    // Blog filtering system for content management integration
     const blogCards = document.querySelectorAll('.blog-card');
-    const filterBtns = document.querySelectorAll('.blog-filters .filter-btn');
+    const blogFilterBtns = document.querySelectorAll('.blog-filters .filter-btn');
 
     // Make blog tags clickable to show related content
     document.querySelectorAll('.blog-tag').forEach(tag => {
         tag.addEventListener('click', function() {
             const tagText = this.textContent.toLowerCase();
 
-            // Show modal with tag-specific content
             if (tagText === 'future of work') {
                 openTagModal('future-of-work');
             } else if (tagText === 'technology trends') {
@@ -203,7 +540,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Add hover effect to show it's clickable
         tag.style.cursor = 'pointer';
         tag.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-2px)';
@@ -216,11 +552,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Blog post filtering functionality
-    filterBtns.forEach(btn => {
+    blogFilterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
+            blogFilterBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
             const filterValue = this.getAttribute('data-category');
@@ -233,7 +567,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.style.display = 'block';
                     card.style.animation = 'fadeIn 0.5s ease-in';
 
-                    // For "All Posts", apply load more logic (show only first 3)
                     if (filterValue === 'all') {
                         if (visibleCount >= 3) {
                             card.classList.add('load-more-hidden');
@@ -241,7 +574,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             card.classList.remove('load-more-hidden');
                         }
                     } else {
-                        // For other filters, show all matching posts
                         card.classList.remove('load-more-hidden');
                     }
                     visibleCount++;
@@ -251,7 +583,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Update load more button and pagination
             const loadMoreBtn = document.querySelector('.load-more-btn');
             const paginationInfo = document.querySelector('.pagination-info span');
             const completeMessage = document.querySelector('.articles-complete-message');
@@ -262,19 +593,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (filterValue === 'all') {
                 const currentlyVisible = document.querySelectorAll('.blog-card:not(.load-more-hidden):not([style*="none"])').length;
-                paginationInfo.textContent = `Showing ${currentlyVisible} of ${visibleCount} articles`;
+                if (paginationInfo) {
+                    paginationInfo.textContent = `Showing ${currentlyVisible} of ${visibleCount} articles`;
+                }
 
-                if (visibleCount > 3) {
-                    loadMoreBtn.style.display = 'inline-flex';
-                    // Reset button to "Load More" state when filtering
-                    loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
-                    loadMoreBtn.onclick = loadMorePosts;
-                } else {
-                    loadMoreBtn.style.display = 'none';
+                if (loadMoreBtn) {
+                    if (visibleCount > 3) {
+                        loadMoreBtn.style.display = 'inline-flex';
+                        loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
+                        loadMoreBtn.onclick = loadMorePosts;
+                    } else {
+                        loadMoreBtn.style.display = 'none';
+                    }
                 }
             } else {
-                paginationInfo.textContent = `Showing ${visibleCount} of ${visibleCount} articles`;
-                loadMoreBtn.style.display = 'none';
+                if (paginationInfo) {
+                    paginationInfo.textContent = `Showing ${visibleCount} of ${visibleCount} articles`;
+                }
+                if (loadMoreBtn) {
+                    loadMoreBtn.style.display = 'none';
+                }
             }
         });
     });
@@ -287,8 +625,8 @@ document.addEventListener('DOMContentLoaded', function() {
             let matchingCount = 0;
 
             blogCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('p')?.textContent.toLowerCase() || '';
                 const tags = Array.from(card.querySelectorAll('.blog-tag')).map(tag => tag.textContent.toLowerCase());
 
                 const matches = title.includes(searchTerm) || 
@@ -306,7 +644,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Update pagination and hide load more when searching
             const loadMoreBtn = document.querySelector('.load-more-btn');
             const paginationInfo = document.querySelector('.pagination-info span');
             const completeMessage = document.querySelector('.articles-complete-message');
@@ -316,24 +653,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (searchTerm.trim() === '') {
-                // Reset to initial state when search is cleared
                 initializeBlogDisplay();
             } else {
-                // Hide load more button when searching and reset its state
-                loadMoreBtn.style.display = 'none';
-                loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
-                loadMoreBtn.onclick = loadMorePosts;
-                paginationInfo.textContent = `Found ${matchingCount} articles matching "${searchTerm}"`;
+                if (loadMoreBtn) {
+                    loadMoreBtn.style.display = 'none';
+                    loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
+                    loadMoreBtn.onclick = loadMorePosts;
+                }
+                if (paginationInfo) {
+                    paginationInfo.textContent = `Found ${matchingCount} articles matching "${searchTerm}"`;
+                }
             }
 
             console.log(`Found ${matchingCount} articles matching "${searchTerm}"`);
         });
     }
 
-    // Blog newsletter form submission
-    const blogNewsletterForm = document.getElementById('blog-newsletter-form');
-    if (blogNewsletterForm) {
-        blogNewsletterForm.addEventListener('submit', function(e) {
+    // Newsletter form submission
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const email = this.querySelector('input[type="email"]').value;
@@ -343,11 +682,178 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Integration point for email marketing services
-            alert('Thank you for subscribing to our blog updates!');
+            alert('Thank you for subscribing to our newsletter!');
             this.reset();
         });
     }
+
+    // Programme application functionality
+    window.applyToProgramme = function(programmeType) {
+        if (programmeType === 'women-business') {
+            closeModal('women-business-modal');
+            showApplicationForm('Women in Business Programme');
+        } else if (programmeType === 'gmp') {
+            showGMPApplicationForm();
+        }
+    };
+
+    // Application form functionality
+    window.showApplicationForm = function(programmeName) {
+        const applicationModal = document.createElement('div');
+        applicationModal.id = 'application-modal';
+        applicationModal.className = 'modal';
+        applicationModal.style.display = 'block';
+        
+        applicationModal.innerHTML = `
+            <div class="modal-content programme-modal">
+                <span class="close" onclick="closeApplicationModal('application-modal')">&times;</span>
+                <div class="programme-modal-header">
+                    <h2>Apply for ${programmeName}</h2>
+                    <p>Fill out the form below to apply for this programme. Our team will review your application and get back to you within 5-7 business days.</p>
+                </div>
+                
+                <form class="application-form" id="programme-application-form">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age *</label>
+                            <select id="age" name="age" required>
+                                <option value="">Select your age range</option>
+                                <option value="20-25">20-25</option>
+                                <option value="26-30">26-30</option>
+                                <option value="31-35">31-35</option>
+                                <option value="36-40">36-40</option>
+                                <option value="41-45">41-45</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Business Information</h3>
+                        <div class="form-group">
+                            <label for="businessStatus">Business Status *</label>
+                            <select id="businessStatus" name="businessStatus" required>
+                                <option value="">Select your business status</option>
+                                <option value="existing">I have an existing business</option>
+                                <option value="planning">I am planning to start a business</option>
+                                <option value="side-business">I want to start a side business</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="businessDescription">Describe your business idea or current business *</label>
+                            <textarea id="businessDescription" name="businessDescription" rows="4" required placeholder="Tell us about your business, your goals, and what you hope to achieve through this programme..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Business Experience *</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select your experience level</option>
+                                <option value="none">No business experience</option>
+                                <option value="some">Some business experience (1-2 years)</option>
+                                <option value="moderate">Moderate business experience (3-5 years)</option>
+                                <option value="extensive">Extensive business experience (5+ years)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Technical Requirements</h3>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="requirements" value="laptop" required>
+                                I have access to a laptop or desktop computer
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="requirements" value="internet" required>
+                                I have stable internet connectivity
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="requirements" value="english" required>
+                                I am fluent in spoken English
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="requirements" value="commitment" required>
+                                I can commit to attending a minimum of 10 courses over 5 months
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Motivation</h3>
+                        <div class="form-group">
+                            <label for="motivation">Why do you want to join this programme? *</label>
+                            <textarea id="motivation" name="motivation" rows="4" required placeholder="Share your motivation for joining the Women in Business programme and how it aligns with your goals..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="closeApplicationModal('application-modal')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        `;
+        
+        document.body.appendChild(applicationModal);
+        document.body.style.overflow = 'hidden';
+        
+        // Handle form submission
+        const form = document.getElementById('programme-application-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const applicationData = {};
+            
+            for (let [key, value] of formData.entries()) {
+                if (applicationData[key]) {
+                    if (Array.isArray(applicationData[key])) {
+                        applicationData[key].push(value);
+                    } else {
+                        applicationData[key] = [applicationData[key], value];
+                    }
+                } else {
+                    applicationData[key] = value;
+                }
+            }
+            
+            const checkboxes = document.querySelectorAll('input[name="requirements"]:checked');
+            if (checkboxes.length < 4) {
+                alert('Please confirm all technical requirements');
+                return;
+            }
+            
+            alert('Thank you for your application! We have received your application for the Women in Business Programme. Our team will review your application and contact you within 5-7 business days. You will receive a confirmation email shortly.');
+            
+            console.log('Application submitted:', applicationData);
+            closeApplicationModal('application-modal');
+        });
+    };
 
     // Tag modal functionality for showing tag-specific content
     window.openTagModal = function(tagType) {
@@ -437,7 +943,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
 
-        // Create and show the modal
         createTagModal(modalId, title, content);
         document.getElementById(modalId).style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -445,7 +950,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create tag modal dynamically
     function createTagModal(modalId, title, content) {
-        // Remove existing modal if it exists
         const existingModal = document.getElementById(modalId);
         if (existingModal) {
             existingModal.remove();
@@ -501,12 +1005,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const paginationInfo = document.querySelector('.pagination-info span');
         const completeMessage = document.querySelector('.articles-complete-message');
 
-        // Remove completion message if it exists
         if (completeMessage) {
             completeMessage.remove();
         }
 
-        // Hide all posts beyond the first 3
         blogCards.forEach((card, index) => {
             if (index >= 3) {
                 card.classList.add('load-more-hidden');
@@ -515,16 +1017,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Update pagination info
         const visibleCount = Math.min(3, blogCards.length);
-        paginationInfo.textContent = `Showing ${visibleCount} of ${blogCards.length} articles`;
+        if (paginationInfo) {
+            paginationInfo.textContent = `Showing ${visibleCount} of ${blogCards.length} articles`;
+        }
 
-        // Show load more button if there are more than 3 posts and reset its state
-        if (blogCards.length > 3) {
+        if (loadMoreBtn && blogCards.length > 3) {
             loadMoreBtn.style.display = 'inline-flex';
             loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
             loadMoreBtn.onclick = loadMorePosts;
-        } else {
+        } else if (loadMoreBtn) {
             loadMoreBtn.style.display = 'none';
         }
     }
@@ -538,21 +1040,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const completeMessage = document.querySelector('.articles-complete-message');
 
         if (hiddenCards.length > 0) {
-            // Show all remaining hidden posts
             hiddenCards.forEach(card => {
                 card.classList.remove('load-more-hidden');
                 card.style.animation = 'fadeIn 0.5s ease-in';
             });
 
-            // Update pagination info
             const visibleCards = document.querySelectorAll('.blog-card:not(.load-more-hidden)');
-            paginationInfo.textContent = `Showing ${visibleCards.length} of ${allCards.length} articles`;
+            if (paginationInfo) {
+                paginationInfo.textContent = `Showing ${visibleCards.length} of ${allCards.length} articles`;
+            }
 
-            // Change button to "Show Less" functionality
-            loadMoreBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Articles';
-            loadMoreBtn.onclick = showLessPosts;
+            if (loadMoreBtn) {
+                loadMoreBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Articles';
+                loadMoreBtn.onclick = showLessPosts;
+            }
 
-            // Remove completion message if it exists
             if (completeMessage) {
                 completeMessage.remove();
             }
@@ -565,25 +1067,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const loadMoreBtn = document.querySelector('.load-more-btn');
         const paginationInfo = document.querySelector('.pagination-info span');
 
-        // Hide all posts beyond the first 3
         allCards.forEach((card, index) => {
             if (index >= 3) {
                 card.classList.add('load-more-hidden');
             }
         });
 
-        // Update pagination info
         const visibleCards = document.querySelectorAll('.blog-card:not(.load-more-hidden)');
-        paginationInfo.textContent = `Showing ${visibleCards.length} of ${allCards.length} articles`;
+        if (paginationInfo) {
+            paginationInfo.textContent = `Showing ${visibleCards.length} of ${allCards.length} articles`;
+        }
 
-        // Change button back to "Load More" functionality
-        loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
-        loadMoreBtn.onclick = loadMorePosts;
+        if (loadMoreBtn) {
+            loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
+            loadMoreBtn.onclick = loadMorePosts;
+        }
 
-        // Scroll to blog section to show the collapsed state
         const blogSection = document.getElementById('blog');
         if (blogSection) {
-            const headerHeight = document.querySelector('.header').offsetHeight;
+            const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
             const targetPosition = blogSection.offsetTop - headerHeight - 100;
 
             window.scrollTo({
@@ -592,157 +1094,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     };
-
-    // Enhanced engagement features
-    // Like functionality for blog posts
-    document.querySelectorAll('.likes').forEach(likeBtn => {
-        likeBtn.addEventListener('click', function() {
-            const heartIcon = this.querySelector('i');
-            const countSpan = this.querySelector('span') || this;
-            let currentCount = parseInt(countSpan.textContent.match(/\d+/)[0]);
-
-            if (heartIcon.classList.contains('fas')) {
-                // Unlike
-                heartIcon.classList.remove('fas');
-                heartIcon.classList.add('far');
-                currentCount--;
-                this.style.color = '#9ca3af';
-            } else {
-                // Like
-                heartIcon.classList.remove('far');
-                heartIcon.classList.add('fas');
-                currentCount++;
-                this.style.color = '#ef4444';
-            }
-
-            countSpan.innerHTML = `<i class="${heartIcon.classList.contains('fas') ? 'fas' : 'far'} fa-heart"></i> ${currentCount}`;
-        });
-    });
-
-    // Comment modal functionality
-    document.querySelectorAll('.comments').forEach(commentBtn => {
-        commentBtn.addEventListener('click', function() {
-            // This would open a comment modal or navigate to full article
-            alert('Comments feature would integrate with your CMS commenting system');
-        });
-    });
-
-    // SEO and Analytics Integration Points
-    // Track blog post views for analytics
-    function trackBlogView(postTitle) {
-        // Integration point for analytics tracking
-        console.log(`Blog post viewed: ${postTitle}`);
-
-        // Example Google Analytics tracking
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'blog_view', {
-                'event_category': 'Blog',
-                'event_label': postTitle
-            });
-        }
-    }
-
-    // Track blog search queries
-    function trackBlogSearch(searchTerm) {
-        // Integration point for search analytics
-        console.log(`Blog search performed: ${searchTerm}`);
-
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'blog_search', {
-                'event_category': 'Blog',
-                'event_label': searchTerm
-            });
-        }
-    }
-
-    // Enhanced share functionality with tracking
-    window.shareOnSocial = function(platform, url, text) {
-        const shareUrls = {
-            twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
-            facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-            linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
-        };
-
-        if (shareUrls[platform]) {
-            // Track social sharing for analytics
-            console.log(`Blog post shared on ${platform}: ${text}`);
-
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'blog_share', {
-                    'event_category': 'Blog',
-                    'event_label': `${platform}: ${text}`
-                });
-            }
-
-            window.open(shareUrls[platform], '_blank', 'width=600,height=400');
-        }
-    };
-
-    // Content Management System Integration Points
-    // This section would integrate with headless CMS APIs
-
-    // Function to fetch blog posts from CMS
-    async function fetchBlogPosts(page = 1, category = 'all', searchTerm = '') {
-        // Integration point for CMS API calls
-        console.log(`Fetching blog posts: page ${page}, category: ${category}, search: ${searchTerm}`);
-
-        // Example API structure for CMS integration
-        /*
-        try {
-            const response = await fetch(`/api/blog/posts?page=${page}&category=${category}&search=${searchTerm}`);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Error fetching blog posts:', error);
-            return null;
-        }
-        */
-    }
-
-    // Function to render blog posts dynamically
-    function renderBlogPosts(posts) {
-        // This would render blog posts from CMS data
-        console.log('Rendering blog posts from CMS');
-
-        // Example implementation for dynamic rendering
-        /*
-        const blogGrid = document.getElementById('blog-posts-grid');
-        blogGrid.innerHTML = '';
-
-        posts.forEach(post => {
-            const blogCard = createBlogCardElement(post);
-            blogGrid.appendChild(blogCard);
-        });
-        */
-    }
-
-    // Auto-save blog drafts (for admin interface)
-    function autoSaveBlogDraft() {
-        // Integration point for content creation interface
-        console.log('Auto-saving blog draft...');
-    }
-
-    // Schedule blog post publication
-    function scheduleBlogPost(postData, publishDate) {
-        // Integration point for content scheduling
-        console.log(`Scheduling blog post for ${publishDate}`);
-    }
-
-    // Newsletter form submission
-    const newsletterForm = document.getElementById('newsletter-form');
-    newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const email = this.querySelector('input[type="email"]').value;
-
-        if (!email) {
-            alert('Please enter your email address');
-            return;
-        }
-
-        alert('Thank you for subscribing to our newsletter!');
-        this.reset();
-    });
 
     // Breezy integration placeholder
     window.openBreezy = function(type) {
@@ -754,7 +1105,9 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Initialize blog display on page load
-    initializeBlogDisplay();
+    if (blogCards.length > 0) {
+        initializeBlogDisplay();
+    }
 
     // Intersection Observer for animations
     const observerOptions = {
@@ -801,6 +1154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
     });
 
+    // ESC key to close modals
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             const openModals = document.querySelectorAll('.modal[style*="block"]');
@@ -811,6 +1165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Social sharing functionality
     window.shareOnSocial = function(platform, url, text) {
         const shareUrls = {
             twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
@@ -823,6 +1178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    // Site search functionality
     window.searchSite = function(query) {
         const searchResults = [];
         const searchableElements = document.querySelectorAll('h1, h2, h3, h4, p');
@@ -840,6 +1196,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return searchResults;
     };
 
+    // Performance monitoring
     if ('serviceWorker' in navigator) {
         console.log('Service Worker support detected');
     }
@@ -901,6 +1258,66 @@ style.textContent = `
 
     .loaded * {
         animation-play-state: running;
+    }
+
+    .curriculum-timeline .day-item {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
+        border-left: 4px solid #2563eb;
+    }
+
+    .curriculum-timeline .day-item h4 {
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+    }
+
+    .curriculum-timeline .day-item ul {
+        margin: 0;
+        padding-left: 1rem;
+    }
+
+    .curriculum-timeline .day-item li {
+        color: #4b5563;
+        margin-bottom: 0.25rem;
+    }
+
+    .target-audience ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .target-audience li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        color: #4b5563;
+    }
+
+    .target-audience li:before {
+        content: "✓";
+        color: #10b981;
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+
+    .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .checkbox-group label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: #4b5563;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+        margin: 0;
     }
 `;
 document.head.appendChild(style);
