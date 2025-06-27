@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -19,9 +21,28 @@
                 <ul class="nav-list">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About Us</a></li>
-                     <li><a href="#programmes" class="nav-link">Programmes</a></li>
-                      <li><a href="#impact" class="nav-link">Impact</a></li>
-                    <li><a href="#opportunities" class="nav-link">Opportunities</a></li>
+                    <li><a href="#programmes" class="nav-link">Programmes</a></li>
+                    <li><a href="#impact" class="nav-link">Impact</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#opportunities" class="nav-link dropdown-trigger">
+                            Opportunities
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="#current-openings" class="nav-dropdown-item" onclick="showOpportunitySection('current-openings')">
+                                <i class="fas fa-briefcase"></i>
+                                Current Openings
+                            </a>
+                            <a href="#career-guidance" class="nav-dropdown-item" onclick="showOpportunitySection('career-guidance')">
+                                <i class="fas fa-compass"></i>
+                                Career Guidance
+                            </a>
+                            <a href="#application-process" class="nav-dropdown-item" onclick="showOpportunitySection('application-process')">
+                                <i class="fas fa-file-alt"></i>
+                                Application Process
+                            </a>
+                        </div>
+                    </li>
                     <li><a href="#blog" class="nav-link">Blogs</a></li>
                     <li><a href="#events" class="nav-link">News & Insights</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -30,13 +51,14 @@
         </div>
     </header>
 
-     <!-- Hero Section -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background"></div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Empowering Digital Transformation</h1>
-                <p class="hero-subtitle">Building bridges between talent and opportunity in the digital economy through comprehensive skills development programmes.</p>
+                <p class="hero-subtitle">Building bridges between talent and opportunity in the digital economy through
+                    comprehensive skills development programmes.</p>
                 <div class="hero-stats">
                     <div class="stat">
                         <div class="stat-number">500+</div>
@@ -52,7 +74,7 @@
                     </div>
                 </div>
                 <div class="hero-actions">
-                    <a href="#opportunities" class="btn btn-primary btn-large">Work With Us</a>
+                    <a href="#work-with-us" class="btn btn-primary btn-large">Work With Us</a>
 
                 </div>
             </div>
@@ -66,11 +88,15 @@
             <span class="close" onclick="closeLearnMoreModal()">&times;</span>
             <h2>Learn More About CAPACITI</h2>
             <div class="video-container">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="CAPACITI Introduction Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="CAPACITI Introduction Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
             <div class="modal-info">
                 <h3>Our Mission</h3>
-                <p>CAPACITI is committed to bridging the digital skills gap by providing high-quality, accessible training programmes that prepare individuals for successful careers in the digital economy.</p>
+                <p>CAPACITI is committed to bridging the digital skills gap by providing high-quality, accessible
+                    training programmes that prepare individuals for successful careers in the digital economy.</p>
                 <div class="info-grid">
                     <div class="info-item">
                         <h4>500+</h4>
@@ -94,7 +120,8 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About CAPACITI</h2>
-                <p class="section-subtitle">Our mission is to bridge the digital skills gap and empower individuals for the future of work</p>
+                <p class="section-subtitle">Our mission is to bridge the digital skills gap and empower individuals for
+                    the future of work</p>
             </div>
 
             <div class="about-content">
@@ -104,14 +131,16 @@
                             <i class="fas fa-bullseye"></i>
                         </div>
                         <h3>Our Mission</h3>
-                        <p>To provide accessible, high-quality digital skills training that empowers individuals and transforms communities.</p>
+                        <p>To provide accessible, high-quality digital skills training that empowers individuals and
+                            transforms communities.</p>
                     </div>
                     <div class="mission-vision-item">
                         <div class="icon">
                             <i class="fas fa-eye"></i>
                         </div>
                         <h3>Our Vision</h3>
-                        <p>A future where everyone has the opportunity to participate meaningfully in the digital economy.</p>
+                        <p>A future where everyone has the opportunity to participate meaningfully in the digital
+                            economy.</p>
                     </div>
                 </div>
 
@@ -119,19 +148,22 @@
                     <h3>Meet Our Team</h3>
                     <div class="team-grid">
                         <div class="team-member">
-                            <img src="https://via.placeholder.com/200x200/6b7280/ffffff?text=Team+Member" alt="Team Member">
+                            <img src="https://via.placeholder.com/200x200/6b7280/ffffff?text=Team+Member"
+                                alt="Team Member">
                             <h4>John Doe</h4>
                             <p>CEO & Founder</p>
                             <a href="#" class="linkedin-link"><i class="fab fa-linkedin"></i></a>
                         </div>
                         <div class="team-member">
-                            <img src="https://via.placeholder.com/200x200/6b7280/ffffff?text=Team+Member" alt="Team Member">
+                            <img src="https://via.placeholder.com/200x200/6b7280/ffffff?text=Team+Member"
+                                alt="Team Member">
                             <h4>Jane Smith</h4>
                             <p>Head of Programmes</p>
                             <a href="#" class="linkedin-link"><i class="fab fa-linkedin"></i></a>
                         </div>
                         <div class="team-member">
-                            <img src="https://via.placeholder.com/200x200/6b7280/ffffff?text=Team+Member" alt="Team Member">
+                            <img src="https://via.placeholder.com/200x200/6b7280/ffffff?text=Team+Member"
+                                alt="Team Member">
                             <h4>Mike Johnson</h4>
                             <p>Technical Director</p>
                             <a href="#" class="linkedin-link"><i class="fab fa-linkedin"></i></a>
@@ -153,66 +185,193 @@
     </section>
 
     <!-- Programmes Section -->
+    <section id="programmes" class="programmes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Programmes</h2>
+                <p class="section-subtitle">Comprehensive training programmes designed for the digital economy</p>
+            </div>
+
+            <div class="programme-filters">
+                <button class="filter-btn active" data-filter="all">All Programmes</button>
+                <button class="filter-btn" data-filter="web-dev">Web Development</button>
+                <button class="filter-btn" data-filter="data">Data Science</button>
+                <button class="filter-btn" data-filter="digital">Digital Marketing</button>
+            </div>
+
+            <div class="programmes-grid">
+                <div class="programme-card" data-category="web-dev">
+                    <div class="programme-image">
+                        <img src="https://via.placeholder.com/300x200/3b82f6/ffffff?text=Web+Development"
+                            alt="Web Development">
+                    </div>
+                    <div class="programme-content">
+                        <h3>Full Stack Web Development</h3>
+                        <p>Comprehensive training in modern web development technologies including React, Node.js, and
+                            databases.</p>
+                        <div class="programme-stats">
+                            <span><i class="fas fa-clock"></i> 12 weeks</span>
+                            <span><i class="fas fa-users"></i> 25 students/cohort</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('web-dev-modal')">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="programme-card" data-category="data">
+                    <div class="programme-image">
+                        <img src="https://via.placeholder.com/300x200/10b981/ffffff?text=Data+Science"
+                            alt="Data Science">
+                    </div>
+                    <div class="programme-content">
+                        <h3>Data Science & Analytics</h3>
+                        <p>Master data analysis, machine learning, and visualization tools to drive business insights.
+                        </p>
+                        <div class="programme-stats">
+                            <span><i class="fas fa-clock"></i> 16 weeks</span>
+                            <span><i class="fas fa-users"></i> 20 students/cohort</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('data-modal')">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="programme-card" data-category="digital">
+                    <div class="programme-image">
+                        <img src="https://via.placeholder.com/300x200/f59e0b/ffffff?text=Digital+Marketing"
+                            alt="Digital Marketing">
+                    </div>
+                    <div class="programme-content">
+                        <h3>Digital Marketing</h3>
+                        <p>Learn modern marketing strategies, social media management, and performance analytics.</p>
+                        <div class="programme-stats">
+                            <span><i class="fas fa-clock"></i> 8 weeks</span>
+                            <span><i class="fas fa-users"></i> 30 students/cohort</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('digital-modal')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
              
 
     <!-- Impact Section -->
     <section id="impact" class="impact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Impact</h2>
-                <p class="section-subtitle">Measuring success through lives transformed and careers launched</p>
+                <h2 class="section-title">OUR <span class="highlight">IMPACT</span></h2>
             </div>
 
-            <div class="impact-stats">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="500">0</div>
-                    <div class="stat-label">Graduates</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="12">0</div>
-                    <div class="stat-label">Cohorts Completed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="85">0</div>
-                    <div class="stat-label">Employment Rate %</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="50">0</div>
-                    <div class="stat-label">Partner Companies</div>
-                </div>
+            <div class="impact-description">
+                <p>At CAPACITI, we believe in more than just closing the skills gap; we believe in opening doors to a world of 
+                opportunities. We recognise the transformative power of digital skills and affirm that access to quality education 
+                and professional development should not be a privilege reserved for a few. Our programmes do not just provide 
+                only technical expertise but also essential life skills.</p>
+                <p>Join us in this movement, where it's not just about what's about honouring the narrative for tomorrow's digital 
+                leaders, today.</p>
             </div>
 
-            <div class="testimonials">
-                <h3>Success Stories</h3>
-                <div class="testimonial-slider">
-                    <div class="testimonial-slide active">
-                        <div class="testimonial-content">
-                            <p>"CAPACITI transformed my career. The practical skills and mentorship I received helped me land my dream job in tech."</p>
-                            <div class="testimonial-author">
-                                <img src="https://via.placeholder.com/60x60/6b7280/ffffff?text=A" alt="Sarah Johnson">
-                                <div>
-                                    <h4>Sarah Johnson</h4>
-                                    <p>Software Developer at TechCorp</p>
-                                </div>
+            <div class="impact-stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number-large">4000+</div>
+                    <div class="stat-description">Unemployed youth were trained with digital and entrepreneurship skills.</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number-large">8000+</div>
+                    <div class="stat-description">Employment opportunities created for South African youth.</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number-large">R337M+</div>
+                    <div class="stat-description">Earned salaries by job-placed graduates, fostering growth for the economy.</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number-large">R116M+</div>
+                    <div class="stat-description">stipends provided for transport, food, and data expenses.</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number-large">99%</div>
+                    <div class="stat-description">of candidates are black and coloured youth.</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number-large">54%</div>
+                    <div class="stat-description">of candidates are female youth.</div>
+                </div>
+            </div>
+                      <!-- Real Stories Section -->
+            <div class="real-stories-section">
+                <div class="stories-header">
+                    <h2>Real Stories, Real <span class="highlight">Impact</span></h2>
+                    <p>Behind every statistic is a human story of transformation, growth, and success.</p>
+                </div>
+
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Career Transformation Story">
+                        </div>
+                        <div class="story-category">Career Transformation</div>
+                        <h3>From Unemployment to Tech Leadership</h3>
+                        <p>Sarah went from being unemployed for 18 months to landing a senior developer role at a Fortune 500 company within 3 months of graduation.</p>
+                        <div class="story-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-label">Before</span>
+                                <span class="timeline-value">Unemployed</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-label">After</span>
+                                <span class="timeline-value">Senior Developer</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-label">Timeline</span>
+                                <span class="timeline-value">3 months</span>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-slide">
-                        <div class="testimonial-content">
-                            <p>"The data science programme gave me the confidence and skills to transition from finance to tech successfully."</p>
-                            <div class="testimonial-author">
-                                <img src="https://via.placeholder.com/60x60/6b7280/ffffff?text=M" alt="Michael Chen">
-                                <div>
-                                    <h4>Michael Chen</h4>
-                                    <p>Data Analyst at DataCorp</p>
-                                </div>
+
+                    <div class="story-card">
+                        <div class="story-image">
+                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Skills Development Story">
+                        </div>
+                        <div class="story-category">Skills Development</div>
+                        <h3>Rural to Digital: Bridging the Gap</h3>
+                        <p>Our mobile training units have reached over 300 individuals in rural communities, providing access to digital skills training.</p>
+                        <div class="story-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-label">Before</span>
+                                <span class="timeline-value">No digital skills</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-label">After</span>
+                                <span class="timeline-value">Certified professionals</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-label">Timeline</span>
+                                <span class="timeline-value">6 months</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-nav">
-                    <button class="nav-dot active" onclick="showTestimonial(0)"></button>
-                    <button class="nav-dot" onclick="showTestimonial(1)"></button>
+
+                    <div class="story-card">
+                        <div class="story-image">
+                          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Economic Impact Story">
+                        </div>
+                        <div class="story-category">Economic Impact</div>
+                        <h3>Building Sustainable Livelihoods</h3>
+                        <p>95% of our graduates report improved financial stability, with average salary increases of 150% within their first year.</p>
+                        <div class="story-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-label">Before</span>
+                                <span class="timeline-value">Below poverty line</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-label">After</span>
+                                <span class="timeline-value">Middle income</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-label">Timeline</span>
+                                <span class="timeline-value">12 months</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -229,11 +388,12 @@
             </div>
 
             <!-- Featured Blog Post -->
-        
+
             <div class="featured-blog">
                 <article class="featured-blog-card" data-category="digital-transformation">
                     <div class="featured-blog-image">
-                        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Digital Transformation and Technology Networks 2024" itemprop="image">
+                        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                            alt="Digital Transformation and Technology Networks 2024" itemprop="image">
                     </div>
                     <div class="featured-blog-content">
                         <div class="blog-meta">
@@ -247,9 +407,12 @@
                             <span class="blog-tag">Technology Trends</span>
                         </div>
                         <h2>Digital Transformation in 2024: What Every Professional Needs to Know</h2>
-                        <p class="featured-summary">Discover the key digital transformation trends shaping industries in 2024. From AI integration to remote work technologies, learn how professionals can stay ahead of the curve and leverage emerging technologies for career growth.</p>
+                        <p class="featured-summary">Discover the key digital transformation trends shaping industries in
+                            2024. From AI integration to remote work technologies, learn how professionals can stay
+                            ahead of the curve and leverage emerging technologies for career growth.</p>
                         <div class="blog-actions">
-                            <a href="#" class="read-more-featured" onclick="openModal('featured-blog-modal')">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more-featured" onclick="openModal('featured-blog-modal')">Read Full
+                                Article <i class="fas fa-arrow-right"></i></a>
 
                         </div>
                     </div>
@@ -276,14 +439,17 @@
             <!-- Regular Blog Posts Grid -->
             <!-- SEO optimized blog cards with structured data markup -->
             <div class="blog-grid" id="blog-posts-grid">
-                <article class="blog-card" data-category="web-development" itemscope itemtype="http://schema.org/BlogPosting">
+                <article class="blog-card" data-category="web-development" itemscope
+                    itemtype="http://schema.org/BlogPosting">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="React Development Guide 2024" itemprop="image">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="React Development Guide 2024" itemprop="image">
                         <div class="blog-category-tag">Web Development</div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span class="blog-date" itemprop="datePublished" content="2024-03-15"><i class="fas fa-calendar"></i> March 15, 2024</span>
+                            <span class="blog-date" itemprop="datePublished" content="2024-03-15"><i
+                                    class="fas fa-calendar"></i> March 15, 2024</span>
                             <span class="read-time"><i class="fas fa-clock"></i> 6 min read</span>
                         </div>
                         <div class="blog-tags">
@@ -292,9 +458,11 @@
                             <span class="blog-tag">Frontend</span>
                         </div>
                         <h3 itemprop="headline">Mastering React in 2024: Advanced Patterns and Best Practices</h3>
-                        <p itemprop="description">Explore advanced React patterns, hooks optimization, and performance techniques that every modern developer should master in 2024.</p>
+                        <p itemprop="description">Explore advanced React patterns, hooks optimization, and performance
+                            techniques that every modern developer should master in 2024.</p>
                         <div class="blog-actions">
-                            <a href="#" class="read-more" onclick="openModal('blog-1-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more" onclick="openModal('blog-1-modal')">Read More <i
+                                    class="fas fa-arrow-right"></i></a>
                             <div class="engagement-stats">
                                 <span class="likes"><i class="fas fa-heart"></i> 42</span>
                                 <span class="comments"><i class="fas fa-comment"></i> 8</span>
@@ -305,12 +473,14 @@
 
                 <article class="blog-card" data-category="career" itemscope itemtype="http://schema.org/BlogPosting">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Tech Career Transition Guide" itemprop="image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Tech Career Transition Guide" itemprop="image">
                         <div class="blog-category-tag">Career</div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span class="blog-date" itemprop="datePublished" content="2024-03-12"><i class="fas fa-calendar"></i> March 12, 2024</span>
+                            <span class="blog-date" itemprop="datePublished" content="2024-03-12"><i
+                                    class="fas fa-calendar"></i> March 12, 2024</span>
                             <span class="read-time"><i class="fas fa-clock"></i> 10 min read</span>
                         </div>
                         <div class="blog-tags">
@@ -319,9 +489,11 @@
                             <span class="blog-tag">Skills Development</span>
                         </div>
                         <h3 itemprop="headline">From Zero to Tech Hero: Complete Career Transition Guide</h3>
-                        <p itemprop="description">A comprehensive roadmap for professionals looking to transition into tech careers, including skill development strategies and industry insights.</p>
+                        <p itemprop="description">A comprehensive roadmap for professionals looking to transition into
+                            tech careers, including skill development strategies and industry insights.</p>
                         <div class="blog-actions">
-                            <a href="#" class="read-more" onclick="openModal('blog-2-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more" onclick="openModal('blog-2-modal')">Read More <i
+                                    class="fas fa-arrow-right"></i></a>
                             <div class="engagement-stats">
                                 <span class="likes"><i class="fas fa-heart"></i> 67</span>
                                 <span class="comments"><i class="fas fa-comment"></i> 15</span>
@@ -330,14 +502,17 @@
                     </div>
                 </article>
 
-                <article class="blog-card" data-category="data-science" itemscope itemtype="http://schema.org/BlogPosting">
+                <article class="blog-card" data-category="data-science" itemscope
+                    itemtype="http://schema.org/BlogPosting">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI and Machine Learning Trends 2024" itemprop="image">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="AI and Machine Learning Trends 2024" itemprop="image">
                         <div class="blog-category-tag">Data Science</div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span class="blog-date" itemprop="datePublished" content="2024-03-08"><i class="fas fa-calendar"></i> March 8, 2024</span>
+                            <span class="blog-date" itemprop="datePublished" content="2024-03-08"><i
+                                    class="fas fa-calendar"></i> March 8, 2024</span>
                             <span class="read-time"><i class="fas fa-clock"></i> 12 min read</span>
                         </div>
                         <div class="blog-tags">
@@ -346,9 +521,11 @@
                             <span class="blog-tag">Python</span>
                         </div>
                         <h3 itemprop="headline">AI & Machine Learning Trends Every Data Scientist Should Watch</h3>
-                        <p itemprop="description">Discover the latest AI and machine learning trends, tools, and techniques that are reshaping the data science landscape in 2024.</p>
+                        <p itemprop="description">Discover the latest AI and machine learning trends, tools, and
+                            techniques that are reshaping the data science landscape in 2024.</p>
                         <div class="blog-actions">
-                            <a href="#" class="read-more" onclick="openModal('blog-3-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more" onclick="openModal('blog-3-modal')">Read More <i
+                                    class="fas fa-arrow-right"></i></a>
                             <div class="engagement-stats">
                                 <span class="likes"><i class="fas fa-heart"></i> 89</span>
                                 <span class="comments"><i class="fas fa-comment"></i> 23</span>
@@ -359,12 +536,14 @@
 
                 <article class="blog-card" data-category="industry" itemscope itemtype="http://schema.org/BlogPosting">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Remote Work Culture and Productivity" itemprop="image">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Remote Work Culture and Productivity" itemprop="image">
                         <div class="blog-category-tag">Industry Insights</div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span class="blog-date" itemprop="datePublished" content="2024-03-05"><i class="fas fa-calendar"></i> March 5, 2024</span>
+                            <span class="blog-date" itemprop="datePublished" content="2024-03-05"><i
+                                    class="fas fa-calendar"></i> March 5, 2024</span>
                             <span class="read-time"><i class="fas fa-clock"></i> 7 min read</span>
                         </div>
                         <div class="blog-tags">
@@ -373,9 +552,11 @@
                             <span class="blog-tag">Team Culture</span>
                         </div>
                         <h3 itemprop="headline">Building Strong Remote Work Culture in Tech Teams</h3>
-                        <p itemprop="description">Learn how successful tech companies are building inclusive, productive remote work cultures and maintaining team cohesion in distributed environments.</p>
+                        <p itemprop="description">Learn how successful tech companies are building inclusive, productive
+                            remote work cultures and maintaining team cohesion in distributed environments.</p>
                         <div class="blog-actions">
-                            <a href="#" class="read-more" onclick="openModal('blog-4-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more" onclick="openModal('blog-4-modal')">Read More <i
+                                    class="fas fa-arrow-right"></i></a>
                             <div class="engagement-stats">
                                 <span class="likes"><i class="fas fa-heart"></i> 34</span>
                                 <span class="comments"><i class="fas fa-comment"></i> 12</span>
@@ -384,14 +565,17 @@
                     </div>
                 </article>
 
-                <article class="blog-card" data-category="web-development" itemscope itemtype="http://schema.org/BlogPosting">
+                <article class="blog-card" data-category="web-development" itemscope
+                    itemtype="http://schema.org/BlogPosting">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cybersecurity for Web Developers" itemprop="image">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Cybersecurity for Web Developers" itemprop="image">
                         <div class="blog-category-tag">Web Development</div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span class="blog-date" itemprop="datePublished" content="2024-03-02"><i class="fas fa-calendar"></i> March 2, 2024</span>
+                            <span class="blog-date" itemprop="datePublished" content="2024-03-02"><i
+                                    class="fas fa-calendar"></i> March 2, 2024</span>
                             <span class="read-time"><i class="fas fa-clock"></i> 9 min read</span>
                         </div>
                         <div class="blog-tags">
@@ -400,9 +584,11 @@
                             <span class="blog-tag">Best Practices</span>
                         </div>
                         <h3 itemprop="headline">Essential Cybersecurity Practices for Modern Web Developers</h3>
-                        <p itemprop="description">A comprehensive guide to implementing security best practices in web development, from authentication to data protection and secure coding principles.</p>
+                        <p itemprop="description">A comprehensive guide to implementing security best practices in web
+                            development, from authentication to data protection and secure coding principles.</p>
                         <div class="blog-actions">
-                            <a href="#" class="read-more" onclick="openModal('blog-5-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more" onclick="openModal('blog-5-modal')">Read More <i
+                                    class="fas fa-arrow-right"></i></a>
                             <div class="engagement-stats">
                                 <span class="likes"><i class="fas fa-heart"></i> 56</span>
                                 <span class="comments"><i class="fas fa-comment"></i> 18</span>
@@ -413,12 +599,14 @@
 
                 <article class="blog-card" data-category="career" itemscope itemtype="http://schema.org/BlogPosting">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Freelancing in Tech Industry" itemprop="image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Freelancing in Tech Industry" itemprop="image">
                         <div class="blog-category-tag">Career</div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span class="blog-date" itemprop="datePublished" content="2024-02-28"><i class="fas fa-calendar"></i> February 28, 2024</span>
+                            <span class="blog-date" itemprop="datePublished" content="2024-02-28"><i
+                                    class="fas fa-calendar"></i> February 28, 2024</span>
                             <span class="read-time"><i class="fas fa-clock"></i> 11 min read</span>
                         </div>
                         <div class="blog-tags">
@@ -427,9 +615,12 @@
                             <span class="blog-tag">Tech Industry</span>
                         </div>
                         <h3 itemprop="headline">The Complete Guide to Freelancing in Tech: From Setup to Success</h3>
-                        <p itemprop="description">Everything you need to know about starting and growing a successful freelance tech career, including client acquisition, pricing strategies, and business management.</p>
+                        <p itemprop="description">Everything you need to know about starting and growing a successful
+                            freelance tech career, including client acquisition, pricing strategies, and business
+                            management.</p>
                         <div class="blog-actions">
-                            <a href="#" class="read-more" onclick="openModal('blog-6-modal')">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more" onclick="openModal('blog-6-modal')">Read More <i
+                                    class="fas fa-arrow-right"></i></a>
                             <div class="engagement-stats">
                                 <span class="likes"><i class="fas fa-heart"></i> 73</span>
                                 <span class="comments"><i class="fas fa-comment"></i> 29</span>
@@ -524,24 +715,254 @@
             </div>
         </div>
     </section>
-
     <!-- Opportunities Section -->
+
+    <!-- START: Opportunities Section -->
     <section id="opportunities" class="opportunities">
+        <div class="container">
+            <!-- START: Current Openings Section -->
+            <div id="current-openings" class="opportunity-section active">
+                <div class="section-header">
+                    <h3 class="subsection-title">Current Openings</h3>
+                    <p class="subsection-subtitle">Explore available positions and join our team</p>
+                </div>
+
+                <!-- START: Breezy ATS Iframe Integration -->
+                <div class="breezy-integration">
+                    <h4>Quick Application Portal</h4>
+                    <p>Use our integrated application system powered by Breezy ATS</p>
+                    <div class="breezy-iframe-container">
+                        <iframe src="https://capaciti.breezy.hr/embed/positions" class="breezy-iframe"
+                            title="CAPACITI Job Openings" frameborder="0" allowfullscreen>
+                        </iframe>
+                        <div class="iframe-overlay">
+                            <p>Click to view all current openings</p>
+                            <a href="https://capaciti.breezy.hr" target="_blank" class="btn btn-primary">
+                                View All Positions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: Breezy ATS Iframe Integration -->
+
+                <!-- Additional Job Categories -->
+                <div class="job-categories" style="margin-top: 3rem;">
+                    <div class="opportunity-types">
+                        <div class="opportunity-card">
+                            <div class="icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Technical Positions</h3>
+                            <p>Software developers, data scientists, and technical trainers</p>
+                            <a href="https://capaciti.breezy.hr/p/technical-positions" target="_blank" class="btn btn-primary breezy-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Tech Jobs
+                            </a>
+                        </div>
+                        <div class="opportunity-card">
+                            <div class="icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3>Education & Training</h3>
+                            <p>Instructors, curriculum developers, and learning facilitators</p>
+                            <a href="https://capaciti.breezy.hr/p/education-training" target="_blank" class="btn btn-primary breezy-btn">
+                                <i class="fas fa-graduation-cap"></i>
+                                View Teaching Jobs
+                            </a>
+                        </div>
+                        <div class="opportunity-card">
+                            <div class="icon">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <h3>Operations & Support</h3>
+                            <p>Administrative, HR, marketing, and student support roles</p>
+                            <a href="https://capaciti.breezy.hr/p/operations-support" target="_blank" class="btn btn-primary breezy-btn">
+                                <i class="fas fa-handshake"></i>
+                                View Support Jobs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Current Openings Section -->
+        </div>
+
+        <!-- START: Career Guidance Section -->
+        <div id="career-guidance" class="opportunity-section">
+            <div class="section-header">
+                <h3 class="subsection-title">Career Guidance</h3>
+                <p class="subsection-subtitle">Get personalized guidance for your tech career journey</p>
+            </div>
+
+            <div class="guidance-content">
+                <div class="guidance-grid">
+                    <div class="guidance-card">
+                        <div class="icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h4>Career Path Planning</h4>
+                        <p>Discover which tech career path aligns with your interests and goals</p>
+                        <a href="https://capaciti.breezy.hr/p/career-assessment" target="_blank"
+                            class="btn btn-outline breezy-btn">
+                            Take Assessment
+                        </a>
+                    </div>
+                    <div class="guidance-card">
+                        <div class="icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Mentorship Program</h4>
+                        <p>Connect with industry professionals for personalized guidance</p>
+                        <a href="https://capaciti.breezy.hr/p/mentorship" target="_blank"
+                            class="btn btn-outline breezy-btn">
+                            Find a Mentor
+                        </a>
+                    </div>
+                    <div class="guidance-card">
+                        <div class="icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4>Resume Review</h4>
+                        <p>Get professional feedback on your resume and portfolio</p>
+                        <a href="https://capaciti.breezy.hr/p/resume-review" target="_blank"
+                            class="btn btn-outline breezy-btn">
+                            Submit Resume
+                        </a>
+                    </div>
+                    <div class="guidance-card">
+                        <div class="icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Interview Prep</h4>
+                        <p>Prepare for technical interviews with mock sessions</p>
+                        <a href="https://capaciti.breezy.hr/p/interview-prep" target="_blank"
+                            class="btn btn-outline breezy-btn">
+                            Book Session
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Career Guidance Section -->
+
+        <!-- START: Application Process Section -->
+        <div id="application-process" class="opportunity-section">
+            <div class="section-header">
+                <h3 class="subsection-title">Application Process</h3>
+                <p class="subsection-subtitle">Learn about our streamlined application process</p>
+            </div>
+
+            <div class="process-content">
+                <div class="process-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-file-upload"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Step 1: Submit Application</h4>
+                            <p>Complete your application through our Breezy ATS portal with all required documents</p>
+                            <a href="https://capaciti.breezy.hr/p/apply" target="_blank"
+                                class="timeline-btn breezy-btn">
+                                Start Application
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Step 2: Initial Review</h4>
+                            <p>Our team reviews your application and qualifications (2-3 business days)</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Step 3: Interview Process</h4>
+                            <p>Participate in interviews scheduled through our integrated system</p>
+                            <a href="https://capaciti.breezy.hr/p/schedule-interview" target="_blank"
+                                class="timeline-btn breezy-btn">
+                                Schedule Interview
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Step 4: Final Decision</h4>
+                            <p>Receive notification of the decision and next steps</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Requirements -->
+                <div class="requirements-section">
+                    <h4>Application Requirements</h4>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <i class="fas fa-id-card"></i>
+                            <span>Valid ID Document</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Educational Certificates</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Updated CV/Resume</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Portfolio (if applicable)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Application CTA -->
+                <div class="quick-apply-section">
+                    <h4>Ready to Apply?</h4>
+                    <p>Start your application process today through our integrated Breezy ATS system</p>
+                    <a href="https://capaciti.breezy.hr" target="_blank" class="btn btn-primary btn-large breezy-btn">
+                        <i class="fas fa-rocket"></i>
+                        Apply Now
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- END: Application Process Section -->
+        </div>
+    </section>
+    <!-- END: Opportunities Navigation Dropdown -->
+    </div>
+
+    <!--Work with us Section -->
+    <section id="work-with-us" class="work-with-us-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Work With Us</h2>
-                <p class="section-subtitle">Join our mission to transform lives through digital skills</p>
+                <p class="subsection-subtitle">Partner with us in various capacities</p>
             </div>
-
-            <div class="opportunities-content">
-                <div class="opportunity-types">
-                    <div class="opportunity-card">
+            <div class="opportunity-types">
+                        <div class="opportunity-card">
                         <div class="icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <h3>Students</h3>
                         <p>Apply for our intensive training programmes and launch your tech career</p>
-                        <a href="#" class="btn btn-primary" onclick="openBreezy('student')">Apply Now</a>
+                        <!-- Breezy ATS Integration Button -->
+                        <a href="https://capaciti.breezy.hr/p/student-applications" target="_blank"
+                            class="btn btn-primary breezy-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Apply Now
+                        </a>
                     </div>
                     <div class="opportunity-card">
                         <div class="icon">
@@ -549,15 +970,23 @@
                         </div>
                         <h3>Employers</h3>
                         <p>Partner with us to access skilled, job-ready graduates</p>
-                        <a href="#" class="btn btn-primary" onclick="openBreezy('employer')">Partner With Us</a>
+                        <!-- Breezy ATS Integration Button -->
+                        <a href="https://capaciti.breezy.hr/p/employer-partnerships" target="_blank"
+                            class="btn btn-primary breezy-btn">
+                            <i class="fas fa-handshake"></i>
+                            Partner With Us
+                        </a>
                     </div>
                     <div class="opportunity-card">
                         <div class="icon">
-                            <i class="fas fa-handshake"></i>
+                            <i class="fas fa-donate"></i>
                         </div>
                         <h3>Funders</h3>
                         <p>Support our mission to bridge the digital skills gap</p>
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
                     </div>
                 </div>
             </div>
@@ -574,13 +1003,32 @@
 
             <div class="contact-content">
                 <div class="contact-info">
+                    <!-- START: Updated contact information with CAPACITI business details -->
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <h4>Cape Town Innovation Hub</h4>
+                            <p>2nd Floor Brickfield Canvas<br>35 Brickfield Rd, Woodstock<br>Cape Town, 7925</p>
+                        </div>
+                    </div>
                     <div class="contact-item">
                         <div class="icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
-                            <h4>Address</h4>
-                            <p>123 Digital Drive<br>Cape Town, 8001<br>South Africa</p>
+                            <h4>CAPACITI Campus Cape Town</h4>
+                            <p>95 Durham Ave<br>Salt River, Cape Town</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div>
+                            <h4>CAPACITI Campus Johannesburg</h4>
+                            <p>13th Floor, Hollard City Campus<br>19 Ameshof Road<br>Braamfontein</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -589,7 +1037,7 @@
                         </div>
                         <div>
                             <h4>Phone</h4>
-                            <p>+27 21 123 4567</p>
+                            <p>Cape Town: +27 (0) 21 409 7000<br>Johannesburg: +27 21 003 7579</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -598,12 +1046,24 @@
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <p>hello@capaciti.org.za</p>
+                            <p>General: hello@capaciti.org.za<br>Cape Town: reception@uvuafrica.org</p>
                         </div>
                     </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h4>Website</h4>
+                            <p><a href="https://www.capaciti.org.za" target="_blank">www.capaciti.org.za</a></p>
+                        </div>
+                    </div>
+                    <!-- END: Updated contact information with CAPACITI business details -->
                 </div>
 
-                <form class="contact-form" id="contact-form">
+
+                <!-- START: Formspree integration for contact form -->
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/mjkrplnl" method="POST">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
@@ -613,20 +1073,42 @@
                     <div class="form-group">
                         <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                     </div>
+                    <!-- Honeypot field to prevent spam -->
+                    <input type="text" name="_gotcha" style="display:none !important">
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
 
+            <!-- START: Updated map to show CAPACITI Campus Cape Town location -->
             <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.2!2d18.4241!3d-33.9175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDU1JzAzLjAiUyAxOMKwMjUnMjYuOCJF!5e0!3m2!1sen!2sza!4v1623456789012!5m2!1sen!2sza" 
-                    width="100%" 
-                    height="300" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #1f2937;">CAPACITI Campus Cape Town</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.2!2d18.4639!3d-33.9342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc676c8b5e6b85%3A0x4c8f8b7d9e2a1b34!2s95%20Durham%20Ave%2C%20Salt%20River%2C%20Cape%20Town%2C%207925%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1623456789012!5m2!1sen!2sza"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
+            <!-- END: Updated map to show CAPACITI Campus Cape Town location -->
+
+            <!-- START: Added second map for Cape Town Innovation Hub -->
+            <div class="map-container" style="margin-top: 2rem;">
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #1f2937;">Cape Town Innovation Hub</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.8!2d18.4686!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc677c1b9c2fd3%3A0x9f6c8b8d6e1c3a45!2s35%20Brickfield%20Rd%2C%20Woodstock%2C%20Cape%20Town%2C%207925%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1623456789012!5m2!1sen!2sza"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+            <!-- END: Added second map for Cape Town Innovation Hub -->
+
+            <!-- START: Added third map for CAPACITI Campus Johannesburg -->
+            <div class="map-container" style="margin-top: 2rem;">
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #1f2937;">CAPACITI Campus Johannesburg</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.8!2d28.0338!3d-26.1899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c67c2c5e8a9%3A0x8f7d6e5c4b3a2f1e!2s19%20Ameshof%20Rd%2C%20Braamfontein%2C%20Johannesburg%2C%202017%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1623456789012!5m2!1sen!2sza"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+            <!-- END: Added third map for CAPACITI Campus Johannesburg -->
+
         </div>
     </section>
 
@@ -781,32 +1263,42 @@
 
                 <!-- Featured Article Image -->
                 <div class="blog-featured-image">
-                    <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Digital Transformation and Technology Networks 2024" class="article-main-image">
+                    <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                        alt="Digital Transformation and Technology Networks 2024" class="article-main-image">
                 </div>
 
                 <div class="blog-content-full">
-                    <p><strong>Digital transformation</strong> continues to reshape industries at an unprecedented pace. As we progress through 2024, professionals across all sectors must understand and adapt to emerging technologies and evolving workplace dynamics.</p>
+                    <p><strong>Digital transformation</strong> continues to reshape industries at an unprecedented pace.
+                        As we progress through 2024, professionals across all sectors must understand and adapt to
+                        emerging technologies and evolving workplace dynamics.</p>
 
                     <h3>Key Trends Shaping Digital Transformation</h3>
-                    <p>The landscape of digital transformation is being shaped by several critical trends that are revolutionizing how we work, collaborate, and deliver value to customers.</p>
+                    <p>The landscape of digital transformation is being shaped by several critical trends that are
+                        revolutionizing how we work, collaborate, and deliver value to customers.</p>
 
                     <h4>1. Artificial Intelligence Integration</h4>
-                    <p>AI is no longer a futuristic concept—it's a present reality transforming business operations. From automated customer service to predictive analytics, AI tools are becoming essential for competitive advantage.</p>
+                    <p>AI is no longer a futuristic concept—it's a present reality transforming business operations.
+                        From automated customer service to predictive analytics, AI tools are becoming essential for
+                        competitive advantage.</p>
 
                     <h4>2. Remote Work Technologies</h4>
-                    <p>The evolution of remote work continues with advanced collaboration tools, virtual reality meetings, and cloud-based workflows that enable seamless distributed team productivity.</p>
+                    <p>The evolution of remote work continues with advanced collaboration tools, virtual reality
+                        meetings, and cloud-based workflows that enable seamless distributed team productivity.</p>
 
                     <h4>3. Data-Driven Decision Making</h4>
-                    <p>Organizations are leveraging big data and analytics to make informed decisions, optimize processes, and personalize customer experiences at scale.</p>
+                    <p>Organizations are leveraging big data and analytics to make informed decisions, optimize
+                        processes, and personalize customer experiences at scale.</p>
 
                     <div class="blog-quote">
                         <blockquote>
-                            "The future belongs to organizations that can adapt quickly to technological change while maintaining a human-centered approach to innovation."
+                            "The future belongs to organizations that can adapt quickly to technological change while
+                            maintaining a human-centered approach to innovation."
                         </blockquote>
                     </div>
 
                     <h3>Skills for the Digital Future</h3>
-                    <p>To thrive in this digital landscape, professionals need to develop both technical and soft skills:</p>
+                    <p>To thrive in this digital landscape, professionals need to develop both technical and soft
+                        skills:</p>
                     <ul>
                         <li>Digital literacy and technology adaptation</li>
                         <li>Data analysis and interpretation</li>
@@ -835,7 +1327,8 @@
                                     <strong>Sarah Anderson</strong>
                                     <span class="comment-date">2 hours ago</span>
                                 </div>
-                                <p>Great insights on AI integration! We've been implementing these strategies at our company and seeing remarkable results.</p>
+                                <p>Great insights on AI integration! We've been implementing these strategies at our
+                                    company and seeing remarkable results.</p>
                                 <div class="comment-actions">
                                     <button class="comment-like"><i class="far fa-heart"></i> 5</button>
                                     <button class="comment-reply">Reply</button>
@@ -852,7 +1345,8 @@
                                     <strong>Mike Chen</strong>
                                     <span class="comment-date">4 hours ago</span>
                                 </div>
-                                <p>The section on remote work technologies resonates with our team's experience. What tools do you recommend for virtual collaboration?</p>
+                                <p>The section on remote work technologies resonates with our team's experience. What
+                                    tools do you recommend for virtual collaboration?</p>
                                 <div class="comment-actions">
                                     <button class="comment-like"><i class="far fa-heart"></i> 3</button>
                                     <button class="comment-reply">Reply</button>
@@ -885,27 +1379,31 @@
                     <h1>Mastering React in 2024: Advanced Patterns and Best Practices</h1>
                 </div>
                 <div class="blog-content-full">
-                    <p>React continues to evolve with new features and patterns that enhance developer productivity and application performance. This comprehensive guide covers the most important React concepts every developer should master in 2024.</p>
+                    <p>React continues to evolve with new features and patterns that enhance developer productivity and
+                        application performance. This comprehensive guide covers the most important React concepts every
+                        developer should master in 2024.</p>
 
                     <h3>Advanced React Patterns</h3>
-                    <p>Modern React development involves several advanced patterns that help create maintainable and scalable applications.</p>
+                    <p>Modern React development involves several advanced patterns that help create maintainable and
+                        scalable applications.</p>
 
                     <h4>Custom Hooks for Logic Reuse</h4>
-                    <p>Custom hooks allow you to extract component logic into reusable functions, promoting code reuse and separation of concerns.</p>
+                    <p>Custom hooks allow you to extract component logic into reusable functions, promoting code reuse
+                        and separation of concerns.</p>
 
                     <div class="code-example">
                         <pre><code>function useLocalStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      return initialValue;
-    }
-  });
+                    const [storedValue, setStoredValue] = useState(() => {
+                    try {
+                            const item = window.localStorage.getItem(key);
+                            return item ? JSON.parse(item) : initialValue;
+                        } catch (error) {
+                        return initialValue;
+                     }
+                });
 
-  const setValue = (value) => {
-    try {
+            const setValue = (value) => {
+                try {
       setStoredValue(value);
       window.localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
@@ -918,7 +1416,8 @@
                     </div>
 
                     <h4>Performance Optimization Techniques</h4>
-                    <p>Learn about React.memo, useMemo, and useCallback to optimize your component performance and prevent unnecessary re-renders.</p>
+                    <p>Learn about React.memo, useMemo, and useCallback to optimize your component performance and
+                        prevent unnecessary re-renders.</p>
                 </div>
 
                 <div class="comments-section">
@@ -937,7 +1436,8 @@
                                     <strong>Alex Liu</strong>
                                     <span class="comment-date">1 hour ago</span>
                                 </div>
-                                <p>The custom hooks example is really helpful! Do you have any recommendations for testing custom hooks?</p>
+                                <p>The custom hooks example is really helpful! Do you have any recommendations for
+                                    testing custom hooks?</p>
                                 <div class="comment-actions">
                                     <button class="comment-like"><i class="far fa-heart"></i> 7</button>
                                     <button class="comment-reply">Reply</button>
@@ -968,10 +1468,13 @@
                     <h1>From Zero to Tech Hero: Complete Career Transition Guide</h1>
                 </div>
                 <div class="blog-content-full">
-                    <p>Making a career transition into technology can be both exciting and overwhelming. This comprehensive guide provides a roadmap for successfully transitioning into a tech career, regardless of your background.</p>
+                    <p>Making a career transition into technology can be both exciting and overwhelming. This
+                        comprehensive guide provides a roadmap for successfully transitioning into a tech career,
+                        regardless of your background.</p>
 
                     <h3>Step 1: Assess Your Starting Point</h3>
-                    <p>Before diving into learning, it's important to assess your current skills and identify transferable abilities from your previous experience.</p>
+                    <p>Before diving into learning, it's important to assess your current skills and identify
+                        transferable abilities from your previous experience.</p>
 
                     <h3>Step 2: Choose Your Path</h3>
                     <p>The tech industry offers numerous career paths. Consider these popular options:</p>
@@ -984,7 +1487,8 @@
                     </ul>
 
                     <h3>Building Your Tech Skills</h3>
-                    <p>Structured learning is crucial for career transition success. Focus on building both technical and soft skills through:</p>
+                    <p>Structured learning is crucial for career transition success. Focus on building both technical
+                        and soft skills through:</p>
                     <ul>
                         <li>Online courses and bootcamps</li>
                         <li>Personal projects and portfolio development</li>
@@ -997,7 +1501,8 @@
                 <div class="comments-section">
                     <h3>Comments <span class="comments-count">(15)</span></h3>
                     <div class="comment-form">
-                        <textarea placeholder="Share your career transition story or ask for advice..." rows="3"></textarea>
+                        <textarea placeholder="Share your career transition story or ask for advice..."
+                            rows="3"></textarea>
                         <button class="btn btn-primary comment-submit">Post Comment</button>
                     </div>
                     <div class="comments-list">
@@ -1010,7 +1515,8 @@
                                     <strong>Priya Rajesh</strong>
                                     <span class="comment-date">3 hours ago</span>
                                 </div>
-                                <p>This guide is exactly what I needed! I'm transitioning from marketing to UX design. Any specific portfolio tips?</p>
+                                <p>This guide is exactly what I needed! I'm transitioning from marketing to UX design.
+                                    Any specific portfolio tips?</p>
                                 <div class="comment-actions">
                                     <button class="comment-like"><i class="far fa-heart"></i> 12</button>
                                     <button class="comment-reply">Reply</button>
@@ -1036,7 +1542,8 @@
                     </div>
                 </div>
                 <div class="blog-content-full">
-                    <p>The field of artificial intelligence and machine learning continues to evolve rapidly. Stay ahead with these emerging trends and technologies.</p>
+                    <p>The field of artificial intelligence and machine learning continues to evolve rapidly. Stay ahead
+                        with these emerging trends and technologies.</p>
                 </div>
             </article>
         </div>
@@ -1054,7 +1561,8 @@
                     </div>
                 </div>
                 <div class="blog-content-full">
-                    <p>Learn strategies for building and maintaining strong team culture in remote and distributed work environments.</p>
+                    <p>Learn strategies for building and maintaining strong team culture in remote and distributed work
+                        environments.</p>
                 </div>
             </article>
         </div>
@@ -1072,7 +1580,8 @@
                     </div>
                 </div>
                 <div class="blog-content-full">
-                    <p>Comprehensive guide to implementing security best practices in modern web development projects.</p>
+                    <p>Comprehensive guide to implementing security best practices in modern web development projects.
+                    </p>
                 </div>
             </article>
         </div>
@@ -1090,7 +1599,8 @@
                     </div>
                 </div>
                 <div class="blog-content-full">
-                    <p>Everything you need to know about building a successful freelance career in the technology industry.</p>
+                    <p>Everything you need to know about building a successful freelance career in the technology
+                        industry.</p>
                 </div>
             </article>
         </div>
@@ -1098,4 +1608,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

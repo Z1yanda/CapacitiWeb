@@ -63,10 +63,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     const headerHeight = document.querySelector('.header').offsetHeight;
                     const targetPosition = target.offsetTop - headerHeight;
 
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    // Special handling for "Work With Us" button - show work-with-us section
+                    if (href === '#current-openings') {
+                        // First scroll to opportunities section
+                        const opportunitiesSection = document.querySelector('#opportunities');
+                        if (opportunitiesSection) {
+                            const opportunitiesPosition = opportunitiesSection.offsetTop - headerHeight;
+                            window.scrollTo({
+                                top: opportunitiesPosition,
+                                behavior: 'smooth'
+                            });
+                            // Show the current-openings section
+                            showOpportunitySection('current-openings');
+                        }
+                    } else if (href === '#work-with-us') {
+                        // Scroll to work-with-us section
+                        const workWithUsSection = document.querySelector('#work-with-us');
+                        if (workWithUsSection) {
+                            const workWithUsPosition = workWithUsSection.offsetTop - headerHeight;
+                            window.scrollTo({
+                                top: workWithUsPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    } else {
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             } catch (error) {
                 console.warn('Invalid selector:', href);
@@ -517,10 +542,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+<<<<<<< HEAD
             alert('Thank you for your message! We\'ll get back to you soon.');
             contactForm.reset();
         });
     }
+=======
+         // Submit to Formspree
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                alert('Thank you for your message! We\'ll get back to you soon.');
+                contactForm.reset();
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwnProperty.call(data, 'errors')) {
+                        alert('Error: ' + data["errors"].map(error => error["message"]).join(", "));
+                    } else {
+                        alert('Oops! There was a problem submitting your form');
+                    }
+                });
+            }
+        }).catch(error => {
+            alert('Oops! There was a problem submitting your form');
+        }).finally(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        });
+    });
+    // END: Contact form submission with Formspree integration
+>>>>>>> eb1722efa0aa03052d330c64d9f49ffdc87594c3
 
     // Enhanced Blog Functionality
     const blogCards = document.querySelectorAll('.blog-card');
@@ -1095,15 +1156,416 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+<<<<<<< HEAD
     // Breezy integration placeholder
     window.openBreezy = function(type) {
         if (type === 'student') {
             alert('Redirecting to student application portal...');
         } else if (type === 'employer') {
             alert('Redirecting to employer partnership portal...');
+=======
+    // Enhanced engagement features
+    // Like functionality for blog posts
+    document.querySelectorAll('.likes').forEach(likeBtn => {
+        likeBtn.addEventListener('click', function() {
+            const heartIcon = this.querySelector('i');
+            const countSpan = this.querySelector('span') || this;
+            let currentCount = parseInt(countSpan.textContent.match(/\d+/)[0]);
+
+            if (heartIcon.classList.contains('fas')) {
+                // Unlike
+                heartIcon.classList.remove('fas');
+                heartIcon.classList.add('far');
+                currentCount--;
+                this.style.color = '#9ca3af';
+            } else {
+                // Like
+                heartIcon.classList.remove('far');
+                heartIcon.classList.add('fas');
+                currentCount++;
+                this.style.color = '#ef4444';
+            }
+
+            countSpan.innerHTML = `<i class="${heartIcon.classList.contains('fas') ? 'fas' : 'far'} fa-heart"></i> ${currentCount}`;
+        });
+    });
+
+    // Comment modal functionality
+    document.querySelectorAll('.comments').forEach(commentBtn => {
+        commentBtn.addEventListener('click', function() {
+            // This would open a comment modal or navigate to full article
+            alert('Comments feature would integrate with your CMS commenting system');
+        });
+    });
+
+    // SEO and Analytics Integration Points
+    // Track blog post views for analytics
+    function trackBlogView(postTitle) {
+        // Integration point for analytics tracking
+        console.log(`Blog post viewed: ${postTitle}`);
+
+        // Example Google Analytics tracking
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'blog_view', {
+                'event_category': 'Blog',
+                'event_label': postTitle
+            });
+        }
+    }
+
+    // Track blog search queries
+    function trackBlogSearch(searchTerm) {
+        // Integration point for search analytics
+        console.log(`Blog search performed: ${searchTerm}`);
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'blog_search', {
+                'event_category': 'Blog',
+                'event_label': searchTerm
+            });
+        }
+    }
+
+    // Enhanced share functionality with tracking
+    window.shareOnSocial = function(platform, url, text) {
+        const shareUrls = {
+            twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
+            facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+            linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
+        };
+
+        if (shareUrls[platform]) {
+            // Track social sharing for analytics
+            console.log(`Blog post shared on ${platform}: ${text}`);
+
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'blog_share', {
+                    'event_category': 'Blog',
+                    'event_label': `${platform}: ${text}`
+                });
+            }
+
+            window.open(shareUrls[platform], '_blank', 'width=600,height=400');
         }
     };
 
+    // Content Management System Integration Points
+    // This section would integrate with headless CMS APIs
+
+    // Function to fetch blog posts from CMS
+    async function fetchBlogPosts(page = 1, category = 'all', searchTerm = '') {
+        // Integration point for CMS API calls
+        console.log(`Fetching blog posts: page ${page}, category: ${category}, search: ${searchTerm}`);
+
+        // Example API structure for CMS integration
+        /*
+        try {
+            const response = await fetch(`/api/blog/posts?page=${page}&category=${category}&search=${searchTerm}`);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching blog posts:', error);
+            return null;
+        }
+        */
+    }
+
+    // Function to render blog posts dynamically
+    function renderBlogPosts(posts) {
+        // This would render blog posts from CMS data
+        console.log('Rendering blog posts from CMS');
+
+        // Example implementation for dynamic rendering
+        /*
+        const blogGrid = document.getElementById('blog-posts-grid');
+        blogGrid.innerHTML = '';
+
+        posts.forEach(post => {
+            const blogCard = createBlogCardElement(post);
+            blogGrid.appendChild(blogCard);
+        });
+        */
+    }
+
+    // Auto-save blog drafts (for admin interface)
+    function autoSaveBlogDraft() {
+        // Integration point for content creation interface
+        console.log('Auto-saving blog draft...');
+    }
+
+    // Schedule blog post publication
+    function scheduleBlogPost(postData, publishDate) {
+        // Integration point for content scheduling
+        console.log(`Scheduling blog post for ${publishDate}`);
+    }
+
+    // Newsletter form submission
+    const newsletterForm = document.getElementById('newsletter-form');
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const email = this.querySelector('input[type="email"]').value;
+
+        if (!email) {
+            alert('Please enter your email address');
+            return;
+        }
+
+        alert('Thank you for subscribing to our newsletter!');
+        this.reset();
+    });
+
+    // START: Enhanced Opportunities Section Functionality
+    
+    // Header navigation dropdown functionality
+    const navDropdown = document.querySelector('.nav-dropdown');
+    
+    if (navDropdown) {
+        // Handle click events on dropdown items
+        const dropdownItems = navDropdown.querySelectorAll('.nav-dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Navigation dropdown item clicked:', this.textContent.trim());
+            });
+        });
+    }
+    
+    // Show specific opportunity section based on selection
+    window.showOpportunitySection = function(sectionId) {
+        // Hide all opportunity sections
+        const allSections = document.querySelectorAll('.opportunity-section');
+        allSections.forEach(section => {
+            section.classList.remove('active');
+        });
+        
+        // Show selected section
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+            
+            // Smooth scroll to opportunities section with offset
+            const opportunitiesSection = document.querySelector('#opportunities');
+            if (opportunitiesSection) {
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                const targetPosition = opportunitiesSection.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+            
+            console.log(`Showing opportunity section: ${sectionId}`);
+>>>>>>> eb1722efa0aa03052d330c64d9f49ffdc87594c3
+        }
+    };
+    
+    // Enhanced Breezy ATS integration with tracking
+    window.openBreezy = function(type, position = '') {
+        const breezyUrls = {
+            'student': 'https://capaciti.breezy.hr/p/student-applications',
+            'employer': 'https://capaciti.breezy.hr/p/employer-partnerships',
+            'staff': 'https://capaciti.breezy.hr/p/staff-positions',
+            'career-assessment': 'https://capaciti.breezy.hr/p/career-assessment',
+            'mentorship': 'https://capaciti.breezy.hr/p/mentorship',
+            'resume-review': 'https://capaciti.breezy.hr/p/resume-review',
+            'interview-prep': 'https://capaciti.breezy.hr/p/interview-prep',
+            'apply': 'https://capaciti.breezy.hr/p/apply',
+            'schedule-interview': 'https://capaciti.breezy.hr/p/schedule-interview'
+        };
+        
+        const targetUrl = breezyUrls[type] || 'https://capaciti.breezy.hr';
+        
+        // Track Breezy ATS interactions for analytics
+        console.log(`Breezy ATS interaction: ${type}`, {
+            type: type,
+            position: position,
+            timestamp: new Date().toISOString(),
+            url: targetUrl
+        });
+        
+        // Analytics integration point
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'breezy_interaction', {
+                'event_category': 'Opportunities',
+                'event_label': `${type}${position ? ` - ${position}` : ''}`,
+                'value': 1
+            });
+        }
+        
+        // Open Breezy ATS in new tab
+        window.open(targetUrl, '_blank', 'noopener,noreferrer');
+        
+        // Show user feedback
+        showNotification(`Opening ${type.replace('-', ' ')} portal...`, 'info');
+    };
+    
+    // Breezy iframe interaction handling
+    const breezyIframes = document.querySelectorAll('.breezy-iframe');
+    breezyIframes.forEach(iframe => {
+        // Handle iframe load events
+        iframe.addEventListener('load', function() {
+            console.log('Breezy iframe loaded successfully');
+            
+            // Hide overlay when iframe loads (optional)
+            const overlay = this.parentElement?.querySelector('.iframe-overlay');
+            if (overlay) {
+                // Keep overlay visible for demonstration, but you can hide it:
+                // overlay.style.display = 'none';
+            }
+        });
+        
+        // Handle iframe errors
+        iframe.addEventListener('error', function() {
+            console.error('Breezy iframe failed to load');
+            
+            // Show fallback message
+            const overlay = this.parentElement?.querySelector('.iframe-overlay');
+            if (overlay) {
+                overlay.innerHTML = `
+                    <p>Unable to load embedded content</p>
+                    <a href="https://capaciti.breezy.hr" target="_blank" class="btn btn-primary">
+                        Open Breezy Portal
+                    </a>
+                `;
+            }
+        });
+    });
+    
+    // Timeline item interactions for application process
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        // Add click interaction for timeline items
+        item.addEventListener('click', function() {
+            // Add visual feedback
+            this.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+            
+            console.log(`Timeline step ${index + 1} clicked`);
+            
+            // Track timeline interactions
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'timeline_interaction', {
+                    'event_category': 'Application Process',
+                    'event_label': `Step ${index + 1}`,
+                    'value': index + 1
+                });
+            }
+        });
+    });
+    
+    // Career guidance card interactions
+    const guidanceCards = document.querySelectorAll('.guidance-card');
+    guidanceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            // Add hover animation
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            // Reset hover animation
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Requirements checklist interaction
+    const requirementItems = document.querySelectorAll('.requirement-item');
+    requirementItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Toggle checked state
+            this.classList.toggle('checked');
+            
+            // Update visual state
+            const icon = this.querySelector('i');
+            if (this.classList.contains('checked')) {
+                icon.className = 'fas fa-check-circle';
+                this.style.background = 'rgba(16, 185, 129, 0.2)';
+                this.style.borderLeft = '4px solid #10b981';
+            } else {
+                // Reset to original icon and style
+                const originalClass = this.dataset.originalIcon || 'fas fa-id-card';
+                icon.className = originalClass;
+                this.style.background = 'rgba(255, 255, 255, 0.08)';
+                this.style.borderLeft = 'none';
+            }
+            
+            console.log('Requirement item toggled:', this.textContent.trim());
+        });
+        
+        // Store original icon class for resetting
+        const icon = item.querySelector('i');
+        if (icon) {
+            item.dataset.originalIcon = icon.className;
+        }
+    });
+    
+    // Notification system for user feedback
+    function showNotification(message, type = 'info') {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => notification.remove());
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-${type === 'info' ? 'info-circle' : type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+                <span>${message}</span>
+            </div>
+            <button class="notification-close" onclick="this.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: ${type === 'info' ? '#3b82f6' : type === 'success' ? '#10b981' : '#f59e0b'};
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 350px;
+            animation: slideInRight 0.3s ease-out;
+        `;
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.style.animation = 'slideOutRight 0.3s ease-in';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 5000);
+    }
+    
+    // Initialize opportunities section on page load
+    function initializeOpportunitiesSection() {
+        // Set default active section
+        const defaultSection = document.getElementById('current-openings');
+        if (defaultSection) {
+            defaultSection.classList.add('active');
+        }
+        
+        console.log('Opportunities section initialized');
+    }
+    
+    // Call initialization
+    initializeOpportunitiesSection();
+    // END: Enhanced Opportunities Section Functionality
+   
     // Initialize blog display on page load
     if (blogCards.length > 0) {
         initializeBlogDisplay();
