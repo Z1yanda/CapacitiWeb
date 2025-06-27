@@ -39,28 +39,44 @@ class PortfolioChatbot {
                 ' You need your certified ID, academic transcripts, CV, and proof of residence'
                 
             ],
-            profession: [
-                `I'm an ${this.portfolioData.profession}.`,
-                `My areas of expertise include: ${this.portfolioData.profession}.`
+            training: [
+                'The training usually lasts between 12 and 18 months, depending on the track.'
+                
+            ],
+            online: [   
+                ' We offer a hybrid model – some sessions are in person, while others are virtual. It depends on your assigned track and location'
+        
+            ],
+            placement: [
+                `Yes! After completing the program, we connect you with partner companies for internships or job placements`
+                
             ],
              courses: [
                 ` We offer training in Data Science, Software Development, Business Analysis, Cloud Computing, Cybersecurity, and more.`
             ],
-            projects: [
-                "I have several exciting projects in my portfolio. Would you like to hear about my CAPACITI CHATBOT or Job Portal?",
-                "My main projects include a CAPACITI CHATBOT and a Job Portal website. Which one interests you?"
+            certificate: [
+                " Yes, upon successful completion of the program, you will receive a certificate and may be eligible for an industry-recognized credential as well"
+                
             ],
             skills: [
                 `My key skills include: ${this.portfolioData.skills.join(", ")}.`,
                 `I specialize in ${this.portfolioData.skills.join(", ")}.`
             ],
-            resume: [
-                "You can download my resume from the portfolio. There's a download button in the main section.",
-                "My resume is available for download on the portfolio page."
+            stipend: [
+                " Yes, participants usually receive a monthly stipend to help cover basic costs like transport and data"
+                
             ],
-            contact: [
-                "You can reach me through the contact form on my portfolio or connect with me on social media.",
-                "Feel free to contact me on 065 293 9819, my email address is zdddletsoma@gmail.com. For more Check out my linkeIn & Github. I'm always open to new opportunities!"
+            troubleshooting: [
+                " Please email our support team at support@capaciti.org.za"
+                
+            ],
+            mentor: [
+                " Yes, every participant is assigned a mentor to support your personal and professional development throughout the program"
+                
+            ],
+            programend: [
+                " You’ll join our growing network of alumni and be supported in your journey to secure meaningful employment"
+                
             ],
             default: [
                 "I'm not sure about that. You can ask me about my projects, skills, experience, or how to contact me.",
@@ -86,7 +102,7 @@ class PortfolioChatbot {
                 </div>
                 <div id="chatbot-messages" class="chatbot-messages"></div>
                 <div class="chatbot-input">
-                    <input type="text" id="chatbot-input" placeholder="Ask me about Ziyanda's portfolio..." />
+                    <input type="text" id="chatbot-input" placeholder="Ask me about CAPACITI..." />
                     <button id="chatbot-send">Send</button>
                 </div>
             </div>
@@ -259,6 +275,24 @@ class PortfolioChatbot {
         }
          if (this.containsKeywords(lowerMessage, ['documents'])) {
             return this.getRandomResponse('documents');
+        }
+         if (this.containsKeywords(lowerMessage, ['training'])) {
+            return this.getRandomResponse('training');
+        }
+        if (this.containsKeywords(lowerMessage, ['online'])) {
+            return this.getRandomResponse('online');
+        }
+        if (this.containsKeywords(lowerMessage, ['certificate'])) {
+            return this.getRandomResponse('certificate');
+        }
+        if (this.containsKeywords(lowerMessage, ['placement'])) {
+            return this.getRandomResponse('placement');
+        }
+        if (this.containsKeywords(lowerMessage, ['stipend'])) {
+            return this.getRandomResponse('stipend');
+        }
+         if (this.containsKeywords(lowerMessage, ['troubleshooting'])) {
+            return this.getRandomResponse('troubleshooting');
         }
         
         if (this.containsKeywords(lowerMessage, ['profession', 'job', 'work', 'career', 'what do you do'])) {
