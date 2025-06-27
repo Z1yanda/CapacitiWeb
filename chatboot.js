@@ -295,8 +295,8 @@ class PortfolioChatbot {
             return this.getRandomResponse('troubleshooting');
         }
         
-        if (this.containsKeywords(lowerMessage, ['profession', 'job', 'work', 'career', 'what do you do'])) {
-            return this.getRandomResponse('profession');
+        if (this.containsKeywords(lowerMessage, ['programend'])) {
+            return this.getRandomResponse('programend');
         }
         
         if (this.containsKeywords(lowerMessage, ['projects', 'portfolio', 'work samples', 'chatbot', 'job portal'])) {
